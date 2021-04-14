@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "./../../assets/images/logoMapa.png";
+import LogoSrc from "./../../assets/images/logoMapa.png";
 import Link from "next/link";
 
 const LogoImg = styled.div`
@@ -35,7 +35,7 @@ const Logo = () => {
   return (
     <NavLogo href="/">
       <LogoImg>
-        <img src={logo} alt="Logo Image" />
+        <img src={LogoSrc} alt="Logo Image" />
       </LogoImg>
     </NavLogo>
   );
