@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import LogoSrc from "./../../assets/images/logoMapa.png";
+import LogoSrc from "./../../assets/images/logo.png";
 import Link from "next/link";
 
 const LogoImg = styled.div`
@@ -13,18 +13,8 @@ const LogoImg = styled.div`
   }
 `;
 
-const LogoText = styled.h2`
-  font-size: 16px;
-  margin: 0;
-  margin-left: 4px;
-  color: #222;
-  font-weight: 500;
-`;
-
 const NavLogo = styled(Link)`
   color: #fff;
-  /* justify-self: flex-start; */
-
   text-decoration: none;
   font-size: 2rem;
   display: flex;
@@ -35,7 +25,7 @@ const Logo = () => {
   return (
     <NavLogo href="/">
       <LogoImg>
-        <img src={LogoSrc} alt="Logo Image" />
+        <img src={LogoSrc} alt="Mapa Dealer" />
       </LogoImg>
     </NavLogo>
   );
