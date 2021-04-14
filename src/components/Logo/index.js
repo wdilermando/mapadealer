@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import logo from '../../assets/images/logoMapa.png';
-import Link from 'next/link';
+import React from "react";
+import styled from "styled-components";
+import logo from "./../../assets/images/logoMapa.png";
+import Link from "next/link";
 
 const LogoImg = styled.div`
   width: 150px;
