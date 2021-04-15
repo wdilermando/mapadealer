@@ -5,14 +5,15 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x:hidden;
   }
   *, *::after, *::before {
     box-sizing: border-box;
   }
   body {    
-    background: #f7f7f7;
+    background:#f7f7f7;
     color: #EFFFFA;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     text-rendering: optimizeLegibility;    
   }
 `;

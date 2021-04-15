@@ -11,6 +11,7 @@ const ImgSlider = styled.img`
   width: 100%;
   height: 100vh;
   object-fit: cover;
+  filter: brightness(80%);
 `;
 
 const HeroTitle = styled(motion.h2)`

@@ -23,7 +23,6 @@ const DescriptionText = styled(motion.p)`
 
 const ImageSection = styled(motion.div)`
   background: green;
-  bottom: 0;
   width: 100%;
 
   img {

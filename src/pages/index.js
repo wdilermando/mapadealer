@@ -1,4 +1,10 @@
-import { HeroSectionCarrousel, InfoSection, InfoSection2 } from '../components';
+import {
+  HeroSectionCarrousel,
+  InfoSection,
+  InfoSection2,
+  NewsSection,
+  PartnerSection,
+} from '../components';
 
 export default function Home() {
   return (
@@ -6,6 +12,8 @@ export default function Home() {
       <HeroSectionCarrousel />
       <InfoSection />
       <InfoSection2 />
+      <NewsSection />
+      <PartnerSection />
     </>
   );
 }
