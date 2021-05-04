@@ -75,7 +75,7 @@ const PartnerSection = () => {
             <Swiper slidesPerView={1} spaceBetween={0} navigation>
               {[1, 2, 3].map((item) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={item}>
                     <TestimonialTextWrapper>
                       <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -107,7 +107,7 @@ const PartnerSection = () => {
               >
                 {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => {
                   return (
-                    <SwiperSlide onSwiper={setThumbsSwiper}>
+                    <SwiperSlide onSwiper={setThumbsSwiper} key={item}>
                       <ImagePartner src={img1} alt="logo" width="200px" />
                     </SwiperSlide>
                   );

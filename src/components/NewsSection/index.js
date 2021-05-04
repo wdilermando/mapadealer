@@ -126,7 +126,7 @@ const NewsSection = () => {
         >
           {newsArray.map((item) => {
             return (
-              <SwiperSlide onSwiper={setThumbsSwiper}>
+              <SwiperSlide key={item.id}>
                 <CardThumb>
                   <img src={img1} alt="logo" />
                   <TextSmall destac>{item.autor}</TextSmall>

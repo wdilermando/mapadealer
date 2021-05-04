@@ -1,7 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 import { Layout } from '../components';
 import GlobalStyle from '../styles/globalStyles';
-
+import '../../node_modules/react-modal-video/css/modal-video.min.css';
 const theme = {
   colors: {
     primary: '#0070f3',

@@ -24,6 +24,11 @@ const Layout = ({ children }) => {
           href="https://unpkg.com/swiper@4.2.6/dist/css/swiper.min.css"
           crossOrigin="anonymous"
         />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
       <NavbarCustom />
       {children}

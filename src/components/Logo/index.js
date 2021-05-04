@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import LogoSrc from "./../../assets/images/logo.png";
-import Link from "next/link";
+import React from 'react';
+import styled from 'styled-components';
+import LogoSrc from './../../assets/images/logo.png';
+import Link from 'next/link';
 
 const LogoImg = styled.div`
-  width: 150px;
-  height: 50px;
+  width: 155px;
+  height: 41px;
   cursor: pointer;
   img {
     width: 100%;

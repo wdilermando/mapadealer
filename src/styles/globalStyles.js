@@ -13,15 +13,15 @@ const GlobalStyle = createGlobalStyle`
   body {    
     background:#f7f7f7;
     color: #EFFFFA;
-    font-family: Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'Raleway', sans-serif;
     text-rendering: optimizeLegibility;    
   }
 `;
 
-export const Container = styled.div`
+export const ContainerCustom = styled.div`
   z-index: 1;
   width: 100%;
-  max-width: 1300px;
+  max-width: 1400px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 50px;

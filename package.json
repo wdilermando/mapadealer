@@ -16,6 +16,7 @@
     "react-dom": "latest",
     "react-intersection-observer": "^8.31.0",
     "react-is": "^16.8.0",
+    "react-modal-video": "^1.2.6",
     "styled-components": "^5.0.0",
     "swiper": "^6.5.6"
   },

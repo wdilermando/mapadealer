@@ -16,13 +16,14 @@ const ImgSlider = styled.img`
 
 const HeroTitle = styled(motion.h2)`
   font-size: 44px;
-  font-weight: bold;
+  font-weight: bolder;
   color: white;
   text-transform: uppercase;
   position: absolute;
   top: calc(50% - 64px);
   text-align: center;
   width: 100%;
+  white-space: pre-wrap;
 `;
 
 const HeroSectionCarrousel = () => {
@@ -30,11 +31,15 @@ const HeroSectionCarrousel = () => {
     <Carousel fade controls={false}>
       <Carousel.Item>
         <ImgSlider src={img1} alt="sec slide" />
-        <HeroTitle>CONDUZINDO PROCESSOS. POTENCIALIZANDO A GESTÃO.</HeroTitle>
+        <HeroTitle>
+          CONDUZINDO PROCESSOS.{'\n'}POTENCIALIZANDO A GESTÃO.
+        </HeroTitle>
       </Carousel.Item>
       <Carousel.Item>
         <ImgSlider src={img2} alt="sec slide" />
-        <HeroTitle>VOCÊ JÁ OUVIU FALAR EM DIGITALIZAÇÃO DE JORNADA?</HeroTitle>
+        <HeroTitle>
+          VOCÊ JÁ OUVIU FALAR EM{'\n'}DIGITALIZAÇÃO DE JORNADA?
+        </HeroTitle>
       </Carousel.Item>
       <Carousel.Item>
         <ImgSlider src={img3} alt="sec slide" />
