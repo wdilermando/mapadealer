@@ -1,6 +1,16 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    --swiper-theme-color: #000000;
+    --swiper-navigation-size: 24px;
+  }
+  .swiper-button-next,
+.swiper-button-prev {
+  border: 2px solid;
+    border-radius: 50%;
+    padding: 15px;
+}
   body {
     margin: 0;
     padding: 0;
@@ -15,6 +25,13 @@ const GlobalStyle = createGlobalStyle`
     color: #EFFFFA;
     font-family: 'Raleway', sans-serif;
     text-rendering: optimizeLegibility;    
+  }
+  .bg-mapa {
+    background-color:white !important;
+  }
+  a {
+    color: #222;
+    text-decoration: none;
   }
 `;
 

@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const StyledBurger = styled(motion.button)`
-  position: absolute;
-  top: 1.8rem;
+  position: relative;
+  /* top: 1.8rem; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;

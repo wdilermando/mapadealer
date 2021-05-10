@@ -5,18 +5,18 @@ import { motion } from 'framer-motion';
 
 import img1 from '../../assets/images/img22.jpg';
 import img2 from '../../assets/images/img28.jpg';
-import img3 from '../../assets/images/img42.jpg';
+import img3 from '../../assets/images/carrousel3.png';
 
 const ImgSlider = styled.img`
   width: 100%;
   height: 100vh;
   object-fit: cover;
-  filter: brightness(80%);
+  filter: brightness(70%);
 `;
 
 const HeroTitle = styled(motion.h2)`
-  font-size: 44px;
-  font-weight: bolder;
+  font-size: 3em;
+  font-weight: 800;
   color: white;
   text-transform: uppercase;
   position: absolute;
@@ -24,6 +24,10 @@ const HeroTitle = styled(motion.h2)`
   text-align: center;
   width: 100%;
   white-space: pre-wrap;
+
+  @media screen and (max-width: 450px) {
+    font-size: 1.8em;
+  }
 `;
 
 const HeroSectionCarrousel = () => {
@@ -43,7 +47,9 @@ const HeroSectionCarrousel = () => {
       </Carousel.Item>
       <Carousel.Item>
         <ImgSlider src={img3} alt="sec slide" />
-        <HeroTitle>POTENCIALIZANDO A GESTÃO.</HeroTitle>
+        <HeroTitle>
+          MAIS QUE UM SOFTWARE OU UM PROGRAMA:{'\n'}SOMOS UMA METODOLOGIA
+        </HeroTitle>
       </Carousel.Item>
     </Carousel>
   );

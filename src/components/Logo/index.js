@@ -23,7 +23,7 @@ const NavLogo = styled(Link)`
 
 const Logo = () => {
   return (
-    <NavLogo href="/">
+    <NavLogo href="/#home">
       <LogoImg>
         <img src={LogoSrc} alt="Mapa Dealer" />
       </LogoImg>

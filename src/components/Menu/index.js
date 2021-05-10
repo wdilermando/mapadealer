@@ -25,7 +25,7 @@ export const StyledMenu = styled.nav`
     font-size: 1.8rem;
     text-transform: uppercase;
     padding: 0.2rem 0;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 0.2rem;
     color: ${({ theme }) => theme.primaryDark};
     text-decoration: none;
@@ -48,12 +48,17 @@ export const StyledMenu = styled.nav`
 const Menu = ({ open }) => {
   return (
     <StyledMenu open={open}>
-      <a href="/">Sobre</a>
-      <a href="/">Serviços</a>
-      <a href="/">Clientes</a>
-      <a href="/">Suporte</a>
-      <a href="/">Blog</a>
-      <a href="/">Login</a>
+      <a href="#about">Sobre</a>
+      <a href="#services">Serviços</a>
+      <a href="#customers">Clientes</a>
+      <a href="#support">Suporte</a>
+      <a href="#blog">Blog</a>
+      <a
+        href="https://app.mappadealer.com.br/signin?returnUrl=%2Fapp%2Fdashboard"
+        target="_blank"
+      >
+        Login
+      </a>
     </StyledMenu>
   );
 };

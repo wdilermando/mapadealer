@@ -3,7 +3,7 @@ import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import img1 from '../../assets/images/img36.jpg';
+import img1 from '../../assets/images/img36.png';
 import img2 from '../../assets/images/map.gif';
 
 const InfoSec = styled.div`
@@ -14,8 +14,11 @@ const InfoSec = styled.div`
 
 const ImgSideSection = styled.img`
   width: 100%;
-  height: 100vh;
+  height: 120vh;
   object-fit: cover;
+  @media screen and (max-width: 991px) {
+    display: none;
+  }
 `;
 
 const TitleSection = styled(motion.h2)`
@@ -23,6 +26,11 @@ const TitleSection = styled(motion.h2)`
   margin-bottom: 3vh;
   white-space: pre-wrap;
   font-size: ${({ fSize }) => fSize};
+  padding-top: 10vh;
+  color: #203663;
+  @media screen and (max-width: 991px) {
+    padding-top: 0vh;
+  }
 `;
 
 const DescriptionText = styled(motion.p)`

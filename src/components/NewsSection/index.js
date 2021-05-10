@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import img1 from '../../assets/images/img22.jpg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Thumbs } from 'swiper/core';
+import { ContainerCustom } from '../../styles/globalStyles';
+import { Parallax } from 'react-parallax';
+import background from '../../assets/images/bgchange.png';
+import Link from 'next/link';
 
 SwiperCore.use([Thumbs]);
 
-const InfoSec = styled.div`
+const InfoSec = styled(Parallax)`
   background: #fff;
   color: #222;
   height: auto;
   padding-top: 10vh;
+  object-fit: contain;
 `;
 
 const CardThumb = styled.div`
@@ -22,14 +26,21 @@ const CardThumb = styled.div`
   max-width: 300px;
   min-width: 250px;
   margin-bottom: 10vh;
+  cursor: pointer;
   img: {
     width: 100%;
   }
 `;
 
-const TitleSection = styled(motion.h2)`
-  font-weight: ${({ enfasis }) => (enfasis ? 'bolder' : 'normal')};
-  margin-bottom: 5vh;
+const TitleSection = styled(motion.div)`
+  h2 {
+    font-weight: ${({ enfasis }) => (enfasis ? '800' : '600')};
+    margin-bottom: 3vh;
+    white-space: pre-wrap;
+    font-size: ${({ fSize }) => fSize};
+    line-height: 45px;
+    color: #203663;
+  }
 `;
 
 const TextSmall = styled.small`
@@ -38,9 +49,11 @@ const TextSmall = styled.small`
 
 const ThumbTitle = styled.h3`
   color: #222;
+  font-size: 18px;
+  font-weight: 600;
 `;
 
-const DescText = styled.p`
+const DescText = styled.div`
   color: #222;
   font-size: 13px;
   line-height: 14px;
@@ -113,33 +126,63 @@ const thumbBreakpoints = {
   },
 };
 
-const NewsSection = () => {
+const DescriptionText = styled(motion.p)`
+  font-size: 16px;
+  font-weight: ${({ enfasis }) => (enfasis ? '700' : '500')};
+`;
+
+const NewsSection = ({ posts }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
   return (
-    <InfoSec>
-      <Container>
-        <TitleSection enfasis>Notícias</TitleSection>
-        <Swiper
-          id="thumbs"
-          thumbs={{ swiper: thumbsSwiper }}
-          breakpoints={thumbBreakpoints}
-        >
-          {newsArray.map((item) => {
-            return (
-              <SwiperSlide key={item.id}>
-                <CardThumb>
-                  <img src={img1} alt="logo" />
-                  <TextSmall destac>{item.autor}</TextSmall>
-                  <ThumbTitle>{item.title}</ThumbTitle>
-                  <TextSmall>{`Publicado por ${item.conta} - ${item.postagem}`}</TextSmall>
-                  <DescText>{item.shortDescription}</DescText>
-                </CardThumb>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-      </Container>
-    </InfoSec>
+    <div id="blog">
+      <InfoSec blur={0} bgImage={background} strength={-100}>
+        <ContainerCustom>
+          <Row>
+            <Col lg="10" xs>
+              <TitleSection fSize={'32px'}>
+                <h2>Blog</h2>
+              </TitleSection>
+              <DescriptionText>
+                Aqui, vamos manter você atualizado sobre as principais notícias
+                relacionadas ao Mappa e à tecnologia utilizada no processo de
+                vendas de empresas no meio digital. Acompanhe nosso blog e fique
+                por dentro de tudo!
+              </DescriptionText>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs lg="12">
+              <Swiper
+                id="thumbs"
+                thumbs={{ swiper: thumbsSwiper }}
+                breakpoints={thumbBreakpoints}
+              >
+                {posts.map((item) => {
+                  return (
+                    <SwiperSlide key={item.id} zoom tag="div">
+                      <Link href={`/blog/${item.slug}`}>
+                        <CardThumb>
+                          <img src={item.postImage} alt="postImage" />
+                          <TextSmall destac>{item.author}</TextSmall>
+                          <ThumbTitle>{item.title}</ThumbTitle>
+                          <TextSmall>{`Publicado por ${item.author} - ${item.postDate}`}</TextSmall>
+                          <DescText
+                            dangerouslySetInnerHTML={{
+                              __html: `${item.excerpt}`,
+                            }}
+                          />
+                        </CardThumb>
+                      </Link>
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+            </Col>
+          </Row>
+        </ContainerCustom>
+      </InfoSec>
+    </div>
   );
 };
 

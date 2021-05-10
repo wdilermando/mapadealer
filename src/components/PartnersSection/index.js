@@ -1,22 +1,49 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Thumbs, Navigation } from 'swiper/core';
+import background from '../../assets/images/bg1_.png';
+import SwiperCore, { Thumbs, Navigation, Pagination } from 'swiper/core';
 
-SwiperCore.use([Thumbs, Navigation]);
+SwiperCore.use([Thumbs, Navigation, Pagination]);
+
 import img1 from '../../assets/images/logo.png';
+import img2 from '../../assets/images/logos/disnove.png';
+import img3 from '../../assets/images/logos/sael.png';
 
-const InfoSec = styled.div`
+const partners = [
+  { id: 1, image: img1, title: 'Mapa Dealer' },
+  { id: 2, image: img2, title: 'Disnove' },
+  { id: 3, image: img3, title: 'Sael' },
+  { id: 4, image: img1, title: 'Mapa Dealer' },
+  { id: 5, image: img1, title: 'Mapa Dealer' },
+];
+
+import { ContainerCustom } from '../../styles/globalStyles';
+import { Parallax } from 'react-parallax';
+
+const InfoSec = styled(Parallax)`
   background: #fff;
   color: #222;
   height: auto;
 `;
 
-const TitleSection = styled(motion.h2)`
-  font-weight: ${({ enfasis }) => (enfasis ? 'bolder' : 'normal')};
+const TitleSection = styled(motion.div)`
+  h2 {
+    font-weight: ${({ enfasis }) => (enfasis ? '800' : '600')};
+    margin-bottom: 3vh;
+    white-space: pre-wrap;
+    font-size: ${({ fSize }) => fSize};
+    line-height: 45px;
+    color: #203663;
+  }
   margin-bottom: 5vh;
+`;
+
+const DescriptionText = styled(motion.p)`
+  font-size: 16px;
+  font-weight: ${({ enfasis }) => (enfasis ? '700' : '500')};
 `;
 
 const thumbBreakpoints = {
@@ -25,7 +52,7 @@ const thumbBreakpoints = {
     spaceBetween: 0,
   },
   720: {
-    slidesPerView: 3,
+    slidesPerView: 4,
     spaceBetween: 2,
   },
   540: {
@@ -41,6 +68,8 @@ const thumbBreakpoints = {
 const ImagePartner = styled.img`
   width: 200px;
   filter: grayscale(1) brightness(1);
+  height: 60px;
+  object-fit: contain;
 
   &:hover {
     filter: none;
@@ -68,56 +97,86 @@ const PartnerInfo = styled.span`
 const PartnerSection = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
-    <InfoSec>
-      <Container>
-        <Row>
-          <Testimonials>
-            <Swiper slidesPerView={1} spaceBetween={0} navigation>
-              {[1, 2, 3].map((item) => {
-                return (
-                  <SwiperSlide key={item}>
-                    <TestimonialTextWrapper>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariat
-                      </p>
-                      <PartnerInfo>
-                        <strong>NOME SOBRENOME</strong>, Cargo
-                      </PartnerInfo>
-                    </TestimonialTextWrapper>
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
-          </Testimonials>
-        </Row>
-        <Row>
-          <Col>
-            <div className="mb-5 mt-3">
-              <TitleSection enfasis>Quem está com a gente</TitleSection>
-              <Swiper
-                id="thumbs"
-                thumbs={{ swiper: thumbsSwiper }}
-                breakpoints={thumbBreakpoints}
-              >
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => {
-                  return (
-                    <SwiperSlide onSwiper={setThumbsSwiper} key={item}>
-                      <ImagePartner src={img1} alt="logo" width="200px" />
-                    </SwiperSlide>
-                  );
-                })}
-              </Swiper>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </InfoSec>
+    <div id="customers">
+      <InfoSec blur={0} bgImage={background} strength={-200}>
+        <ContainerCustom>
+          <Row className="mb-5">
+            <Col lg="6" xs>
+              <TitleSection fSize={'32px'}>
+                <h2>Clientes</h2>
+              </TitleSection>
+            </Col>
+            <Col xs lg="6">
+              <DescriptionText>
+                Saiba o que os nossos clientes estão achando da revolução
+                digital que o Mappa oferece para os processos de venda das suas
+                empresas.
+              </DescriptionText>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs lg="12">
+              <Testimonials>
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={0}
+                  navigation
+                  pagination={{ clickable: true }}
+                >
+                  {[1, 2, 3].map((item) => {
+                    return (
+                      <SwiperSlide key={item}>
+                        <TestimonialTextWrapper>
+                          <DescriptionText>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip
+                            ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore
+                            eu fugiat nulla pariat
+                          </DescriptionText>
+                          <PartnerInfo>
+                            <strong>NOME SOBRENOME</strong>, Cargo
+                          </PartnerInfo>
+                        </TestimonialTextWrapper>
+                      </SwiperSlide>
+                    );
+                  })}
+                </Swiper>
+              </Testimonials>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <div className="mb-5 mt-3">
+                <TitleSection fSize={'32px'}>
+                  <h2>Quem está com a gente</h2>
+                </TitleSection>
+                <Swiper
+                  id="thumbs"
+                  autoplay
+                  thumbs={{ swiper: thumbsSwiper }}
+                  breakpoints={thumbBreakpoints}
+                >
+                  {partners.map((item) => {
+                    return (
+                      <SwiperSlide onSwiper={setThumbsSwiper} key={item.id}>
+                        <ImagePartner
+                          src={item.image}
+                          alt={item.title}
+                          width="200px"
+                        />
+                      </SwiperSlide>
+                    );
+                  })}
+                </Swiper>
+              </div>
+            </Col>
+          </Row>
+        </ContainerCustom>
+      </InfoSec>
+    </div>
   );
 };
 

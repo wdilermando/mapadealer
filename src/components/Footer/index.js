@@ -2,9 +2,14 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import Logo from '../Logo';
+import img1 from '../../assets/images/footer/in.png';
+import img2 from '../../assets/images/footer/ig.png';
+import img3 from '../../assets/images/footer/yt.png';
+import img4 from '../../assets/images/footer/fb.png';
+import { ContainerCustom } from '../../styles/globalStyles';
 
 const CustomFooter = styled.div`
-  background: #ccc;
+  background: #efefef;
   padding: 2% 5%;
   color: #222;
 `;
@@ -26,14 +31,33 @@ const InfoWrapper = styled.div`
   margin-bottom: 10px;
 `;
 
+const IconsWrapper = styled.div`
+  display: flex;
+  justify-content: start;
+  flex-direction: row;
+`;
+
+const IconImage = styled.img`
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
+  cursor: pointer;
+`;
+
 const Footer = () => {
   return (
     <CustomFooter>
-      <Container>
+      <ContainerCustom>
         <Row>
           <Col xs="12" lg="4">
             <div className="d-flex justify-content-between flex-column h-100">
               <Logo />
+              <IconsWrapper>
+                <IconImage src={img2} />
+                <IconImage src={img1} />
+                <IconImage src={img4} />
+                <IconImage src={img3} />
+              </IconsWrapper>
               <SimpleText>2021, todos os direitos reservados</SimpleText>
             </div>
           </Col>
@@ -76,7 +100,7 @@ const Footer = () => {
             </InfoWrapper>
           </Col>
         </Row>
-      </Container>
+      </ContainerCustom>
     </CustomFooter>
   );
 };
