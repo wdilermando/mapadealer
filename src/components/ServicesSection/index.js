@@ -54,7 +54,7 @@ const InfoSec = styled.div`
   background-image: url(${background});
   background-position: right;
   background-size: cover;
-  color: #222;
+  color: ${({ theme }) => theme.primaryDark};
   height: auto;
   padding-top: 10vh;
   padding-bottom: 10vh;
@@ -67,7 +67,7 @@ const TitleSection = styled(motion.div)`
     white-space: pre-wrap;
     font-size: ${({ fSize }) => fSize};
     line-height: 45px;
-    color: #203663;
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
@@ -80,18 +80,18 @@ const SubTitle = styled.div`
   margin-top: 5vh;
   margin-bottom: 5vh;
   font-size: 24px;
-  color: #203663;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const BolderDestaq = styled.span`
-  color: white;
-  background: #a00000;
+  color: ${({ theme }) => theme.primaryLight};
+  background: ${({ theme }) => theme.colors.secondary};
 `;
 
 const FeatureImage = styled.img`
   width: 80px;
   height: 80px;
-  color: 'black';
+  color: ${({ theme }) => theme.primaryDark};
 `;
 
 const FeatureItem = styled.div`
@@ -106,6 +106,7 @@ const FeatureItem = styled.div`
   h4 {
     margin-left: 10px;
     font-size: 18px;
+    color: ${({ theme }) => theme.colors.tertiary};
   }
 `;
 
@@ -122,12 +123,12 @@ const GridContainer = styled.div`
 `;
 
 const ServiceItem = styled.article`
-  background: #a00000;
+  background: ${({ theme }) => theme.colors.secondary};
   border-radius: 0.6rem;
   flex-direction: column;
   height: 200px;
   width: 300px;
-  color: white;
+  color: ${({ theme }) => theme.primaryLight};
 
   h4 {
     padding: 1rem;
@@ -143,7 +144,7 @@ const ServiceItem = styled.article`
     border-bottom-right-radius: 0.6rem;
     height: 110px;
     width: 300px;
-    color: #222;
+    color: ${({ theme }) => theme.colors.tertiary};
 
     font-size: 18px;
     font-weight: 600;

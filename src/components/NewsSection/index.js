@@ -14,7 +14,7 @@ SwiperCore.use([Thumbs]);
 
 const InfoSec = styled(Parallax)`
   background: #fff;
-  color: #222;
+  color: ${({ theme }) => theme.colors.tertiary};
   height: auto;
   padding-top: 10vh;
   object-fit: contain;
@@ -39,73 +39,26 @@ const TitleSection = styled(motion.div)`
     white-space: pre-wrap;
     font-size: ${({ fSize }) => fSize};
     line-height: 45px;
-    color: #203663;
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
 const TextSmall = styled.small`
-  color: ${({ destac }) => (destac ? '#222' : '#ccc')};
+  color: ${({ theme }) => theme.colors.primary};
+  font-weight: 500;
 `;
 
 const ThumbTitle = styled.h3`
-  color: #222;
+  color: ${({ theme }) => theme.colors.tertiary};
   font-size: 18px;
   font-weight: 600;
 `;
 
 const DescText = styled.div`
-  color: #222;
+  color: ${({ theme }) => theme.colors.tertiary};
   font-size: 13px;
   line-height: 14px;
 `;
-
-const newsArray = [
-  {
-    id: 1,
-    title: 'Title 1',
-    autor: 'Autor 1',
-    postagem: '29/01/2021',
-    conta: 'Mapa Dealer',
-    shortDescription:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing eli.',
-  },
-  {
-    id: 2,
-    title: 'Title 2',
-    autor: 'Autor 2',
-    postagem: '29/02/2021',
-    conta: 'Mapa Dealer',
-    shortDescription:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing eli.',
-  },
-  {
-    id: 3,
-    title: 'Title 3',
-    autor: 'Autor 3',
-    postagem: '29/03/2021',
-    conta: 'Mapa Dealer',
-    shortDescription:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing eli.',
-  },
-  {
-    id: 4,
-    title: 'Title 4',
-    autor: 'Autor 4',
-    postagem: '29/04/2024',
-    conta: 'Mapa Dealer',
-    shortDescription:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing eli.',
-  },
-  {
-    id: 5,
-    title: 'Title 5',
-    autor: 'Autor 5',
-    postagem: '29/05/2021',
-    conta: 'Mapa Dealer',
-    shortDescription:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing eli.',
-  },
-];
 
 const thumbBreakpoints = {
   960: {
@@ -138,7 +91,7 @@ const NewsSection = ({ posts }) => {
     <div id="blog">
       <InfoSec blur={0} bgImage={background} strength={-100}>
         <ContainerCustom>
-          <Row>
+          <Row className="mb-4">
             <Col lg="10" xs>
               <TitleSection fSize={'32px'}>
                 <h2>Blog</h2>
@@ -164,7 +117,7 @@ const NewsSection = ({ posts }) => {
                       <Link href={`/blog/${item.slug}`}>
                         <CardThumb>
                           <img src={item.postImage} alt="postImage" />
-                          <TextSmall destac>{item.author}</TextSmall>
+                          <TextSmall>{item.category}</TextSmall>
                           <ThumbTitle>{item.title}</ThumbTitle>
                           <TextSmall>{`Publicado por ${item.author} - ${item.postDate}`}</TextSmall>
                           <DescText

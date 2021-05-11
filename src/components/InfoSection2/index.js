@@ -8,7 +8,7 @@ import img2 from '../../assets/images/map.gif';
 
 const InfoSec = styled.div`
   background: #fcfcfd;
-  color: #222;
+  color: ${({ theme }) => theme.primaryDark};
   height: auto;
 `;
 
@@ -27,7 +27,7 @@ const TitleSection = styled(motion.h2)`
   white-space: pre-wrap;
   font-size: ${({ fSize }) => fSize};
   padding-top: 10vh;
-  color: #203663;
+  color: ${({ theme }) => theme.colors.primary};
   @media screen and (max-width: 991px) {
     padding-top: 0vh;
   }
@@ -42,6 +42,10 @@ const SmallestText = styled(motion.small)`
   font-size: 14px;
   font-weight: 500;
   width: 40%;
+  @media screen and (max-width: 450px) {
+    width: 100%;
+    font-size: 13px;
+  }
 `;
 
 const InfoSection2 = () => {

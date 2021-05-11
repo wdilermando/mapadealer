@@ -16,6 +16,7 @@ export async function getAllPosts() {
       id: post.id,
       author: post._embedded.author[0].name,
       postImage: post._embedded['wp:featuredmedia'][0].source_url || '',
+      category: post._embedded['wp:term'][0][0].name,
     };
   });
 

@@ -12,7 +12,7 @@ import { Parallax } from 'react-parallax';
 
 const InfoSec = styled(Parallax)`
   background: #f8f8f8;
-  color: #222;
+  color: ${({ theme }) => theme.primaryDark};
   height: auto;
   padding-top: 10vh;
   padding-bottom: 10vh;
@@ -28,7 +28,7 @@ const TitleSection = styled(motion.h2)`
   margin-bottom: 5vh;
   white-space: pre-wrap;
   font-size: ${({ fSize }) => fSize};
-  color: #203663;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const DescriptionText = styled(motion.p)`

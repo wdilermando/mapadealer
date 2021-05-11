@@ -8,11 +8,10 @@ import { ContainerCustom } from '../../styles/globalStyles';
 import img1 from '../../assets/images/phone.png';
 import img2 from '../../assets/images/mail.png';
 import img3 from '../../assets/images/wpp.png';
-import Link from 'next/link';
 
 const InfoSec = styled.div`
   background: #ffffff;
-  color: #222;
+  color: ${({ theme }) => theme.primaryDark};
   height: auto;
   padding-top: 10vh;
   padding-bottom: 10vh;
@@ -25,21 +24,13 @@ const TitleSection = styled(motion.div)`
     white-space: pre-wrap;
     font-size: ${({ fSize }) => fSize};
     line-height: 45px;
-    color: #203663;
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
 const DescriptionText = styled(motion.p)`
   font-size: 16px;
   font-weight: 500;
-`;
-
-const StyledLink = styled(Link)`
-  color: #fff;
-  text-decoration: none;
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
 `;
 
 const GridContainer = styled.div`
@@ -55,7 +46,7 @@ const ItemWrapper = styled.article`
   flex-direction: column;
   height: 200px;
   width: 300px;
-  color: #000;
+  color: ${({ theme }) => theme.primaryDark};
   text-align: center;
 
   img {
@@ -66,14 +57,14 @@ const ItemWrapper = styled.article`
 `;
 
 const LinkAction = styled(DescriptionText)`
-  color: #203663;
+  color: ${({ theme }) => theme.colors.primary};
   font-weight: 700;
   font-size: 18px;
 
   a {
     &:hover {
       text-decoration: none;
-      color: inherit;
+      color: ${({ theme }) => theme.colors.secondary};
     }
   }
 `;

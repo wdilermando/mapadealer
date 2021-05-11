@@ -10,3 +10,4 @@ export { default as NewsSection } from './NewsSection';
 export { default as PartnerSection } from './PartnersSection';
 export { default as HeroSectionCarrousel } from './Carrousel';
 export { default as SocialIcons } from './SocialIcons';
+export { default as LeadForm } from './LeadForm';

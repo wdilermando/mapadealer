@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
   }
   .bg-mapa {
     background-color:white !important;
+    box-shadow: 0px 5px 10px 0px #0000001a;
   }
   a {
     color: #222;

@@ -1,13 +1,12 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ContainerCustom } from '../../styles/globalStyles';
 
 const InfoSec = styled.div`
   background: #ffffff;
-  color: #222;
+  color: ${({ theme }) => theme.primaryDark};
   height: auto;
   padding-bottom: 10vh;
 `;
@@ -16,24 +15,19 @@ const TitleSection = styled(motion.h2)`
   white-space: pre-wrap;
   font-size: ${({ fSize }) => fSize};
   text-align: center;
-  color: white;
-`;
-
-const StyledLink = styled(Link)`
-  color: #fff;
-  text-decoration: none;
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
+  color: ${({ theme }) => theme.primaryLight};
 `;
 
 const DestacWrapper = styled.div`
-  background: #a00000;
-  height: 100px;
+  background: ${({ theme }) => theme.colors.secondary};
+  height: 15vh;
   width: 100%;
   justify-content: center;
   align-items: center;
   display: flex;
+  @media screen and (max-width: 450px) {
+    height: 30vh;
+  }
 `;
 
 const DescriptionText = styled(motion.p)`

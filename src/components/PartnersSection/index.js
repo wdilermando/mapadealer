@@ -25,7 +25,7 @@ import { Parallax } from 'react-parallax';
 
 const InfoSec = styled(Parallax)`
   background: #fff;
-  color: #222;
+  color: ${({ theme }) => theme.primaryDark};
   height: auto;
 `;
 
@@ -36,7 +36,7 @@ const TitleSection = styled(motion.div)`
     white-space: pre-wrap;
     font-size: ${({ fSize }) => fSize};
     line-height: 45px;
-    color: #203663;
+    color: ${({ theme }) => theme.colors.primary};
   }
   margin-bottom: 5vh;
 `;
@@ -91,7 +91,7 @@ const TestimonialTextWrapper = styled.div`
 
 const PartnerInfo = styled.span`
   font-size: 18px;
-  color: #222;
+  color: ${({ theme }) => theme.primaryDark};
 `;
 
 const PartnerSection = () => {

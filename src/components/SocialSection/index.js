@@ -11,7 +11,7 @@ import { SocialIcons } from '..';
 
 const InfoSec = styled.div`
   background: #ffffff;
-  color: #222;
+  color: ${({ theme }) => theme.primaryDark};
   height: auto;
   padding-top: 10vh;
   padding-bottom: 10vh;
@@ -30,7 +30,7 @@ const TitleSection = styled(motion.h2)`
   white-space: pre-wrap;
   font-size: ${({ fSize }) => fSize};
   text-align: center;
-  color: #203663;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const IconsWrapper = styled.div`

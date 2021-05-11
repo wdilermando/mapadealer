@@ -25,6 +25,7 @@ const PostContent = styled.div`
 
 const SocialCard = styled.div`
   margin-top: 2em;
+  margin-bottom: 2em;
   background-color: #fff;
   box-shadow: 0px 5px 10px 0px #0000001a;
   border-radius: 20px;

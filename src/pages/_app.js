@@ -8,9 +8,11 @@ import 'swiper/components/navigation/navigation.min.css';
 
 const theme = {
   colors: {
-    primary: '#0070f3',
+    primary: '#203663',
+    secondary: '#BA0649',
+    tertiary: '#636363',
   },
-  primaryDark: '#0D0C1D',
+  primaryDark: '#222',
   primaryLight: '#fff',
   primaryHover: '#343078',
   mobile: '576px',
