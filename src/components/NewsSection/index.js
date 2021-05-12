@@ -4,13 +4,13 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Thumbs } from 'swiper/core';
+import SwiperCore, { Pagination, Autoplay } from 'swiper/core';
 import { ContainerCustom } from '../../styles/globalStyles';
 import { Parallax } from 'react-parallax';
 import background from '../../assets/images/bgchange.png';
 import Link from 'next/link';
 
-SwiperCore.use([Thumbs]);
+SwiperCore.use([Pagination, Autoplay]);
 
 const InfoSec = styled(Parallax)`
   background: #fff;
@@ -27,7 +27,7 @@ const CardThumb = styled.div`
   min-width: 250px;
   margin-bottom: 10vh;
   cursor: pointer;
-  img: {
+  img {
     width: 100%;
   }
 `;
@@ -44,7 +44,8 @@ const TitleSection = styled(motion.div)`
 `;
 
 const TextSmall = styled.small`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme, destac }) =>
+    destac ? theme.colors.primary : theme.colors.tertiary};
   font-weight: 500;
 `;
 
@@ -52,6 +53,9 @@ const ThumbTitle = styled.h3`
   color: ${({ theme }) => theme.colors.tertiary};
   font-size: 18px;
   font-weight: 600;
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 const DescText = styled.div`
@@ -85,8 +89,6 @@ const DescriptionText = styled(motion.p)`
 `;
 
 const NewsSection = ({ posts }) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
   return (
     <div id="blog">
       <InfoSec blur={0} bgImage={background} strength={-100}>
@@ -107,17 +109,21 @@ const NewsSection = ({ posts }) => {
           <Row>
             <Col xs lg="12">
               <Swiper
-                id="thumbs"
-                thumbs={{ swiper: thumbsSwiper }}
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: true,
+                }}
                 breakpoints={thumbBreakpoints}
+                pagination={true}
+                className="mySwiper"
               >
                 {posts.map((item) => {
                   return (
                     <SwiperSlide key={item.id} zoom tag="div">
                       <Link href={`/blog/${item.slug}`}>
                         <CardThumb>
-                          <img src={item.postImage} alt="postImage" />
-                          <TextSmall>{item.category}</TextSmall>
+                          <img src={item.postImage} alt={item.title} />
+                          <TextSmall destac>{item.category}</TextSmall>
                           <ThumbTitle>{item.title}</ThumbTitle>
                           <TextSmall>{`Publicado por ${item.author} - ${item.postDate}`}</TextSmall>
                           <DescText

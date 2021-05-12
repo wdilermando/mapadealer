@@ -1,6 +1,7 @@
 import React from 'react';
 import { bool } from 'prop-types';
 import styled from 'styled-components';
+import { APP_LOGIN } from '../../lib/constants';
 
 export const StyledMenu = styled.nav`
   display: flex;
@@ -53,10 +54,7 @@ const Menu = ({ open }) => {
       <a href="#customers">Clientes</a>
       <a href="#support">Suporte</a>
       <a href="#blog">Blog</a>
-      <a
-        href="https://app.mappadealer.com.br/signin?returnUrl=%2Fapp%2Fdashboard"
-        target="_blank"
-      >
+      <a href={APP_LOGIN} target="_blank">
         Login
       </a>
     </StyledMenu>

@@ -157,7 +157,7 @@ const ServicesSection = () => {
       <ContainerCustom>
         <Row>
           <Col lg="6" xs>
-            <TitleSection fSize={'32px'} enfasis>
+            <TitleSection fSize={'32px'}>
               <h2>Serviços</h2>
             </TitleSection>
           </Col>

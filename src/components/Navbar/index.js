@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import wpp from '../../assets/svg/wpp.svg';
 import { LeadForm } from '..';
 import { motion } from 'framer-motion';
+import { APP_LOGIN } from '../../lib/constants';
 
 const LoginLink = styled.span`
   font-weight: 600;
@@ -77,10 +78,7 @@ const NavbarCustom = () => {
           </OverlayTrigger>
 
           <LoginLink className="mr-3">
-            <a
-              href="https://app.mappadealer.com.br/signin?returnUrl=%2Fapp%2Fdashboard"
-              target="_blank"
-            >
+            <a href={APP_LOGIN} target="_blank">
               Login
             </a>
           </LoginLink>

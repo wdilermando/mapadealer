@@ -35,6 +35,7 @@ const IconsWrapper = styled.div`
   display: flex;
   justify-content: start;
   flex-direction: row;
+  margin-top: 1em;
 `;
 
 const IconImage = styled.img`
@@ -44,62 +45,91 @@ const IconImage = styled.img`
   cursor: pointer;
 `;
 
+const CompanyInfo = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 20vh;
+
+  @media screen and (max-width: 450px) {
+    align-items: center;
+    margin-top: 1em;
+    height: 15vh;
+  }
+`;
+
 const Footer = () => {
   return (
     <CustomFooter>
       <ContainerCustom>
         <Row>
           <Col xs="12" lg="4">
-            <div className="d-flex justify-content-between flex-column h-100">
-              <Logo />
-              <IconsWrapper>
-                <IconImage src={img2} />
-                <IconImage src={img1} />
-                <IconImage src={img4} />
-                <IconImage src={img3} />
-              </IconsWrapper>
-              <SimpleText>2021, todos os direitos reservados</SimpleText>
-            </div>
-          </Col>
-          <Col xs="12" lg="3">
-            <InfoWrapper>
-              <TitleText>Endereço</TitleText>
+            <CompanyInfo>
               <div>
-                <SimpleText>
-                  Av. Herculano Bandeira, 513 - PinaRecife - PE, 51110-131
-                </SimpleText>
+                <Logo />
+                <IconsWrapper>
+                  <IconImage src={img2} />
+                  <IconImage src={img1} />
+                  <IconImage src={img4} />
+                  <IconImage src={img3} />
+                </IconsWrapper>
               </div>
-            </InfoWrapper>
-            <InfoWrapper>
-              <TitleText>Telefone</TitleText>
-              <div className="d-flex align-items-start flex-column">
-                <SimpleText>+55 81 00000.0000</SimpleText>
-                <SimpleText>+55 81 00000.0000</SimpleText>
-              </div>
-            </InfoWrapper>
+              <SimpleText className="d-none d-sm-none d-md-none d-xl-block d-lg-block">
+                2021, todos os direitos reservados
+              </SimpleText>
+            </CompanyInfo>
           </Col>
           <Col>
-            <InfoWrapper>
-              <TitleText>Empresa</TitleText>
-              <div className="d-flex align-items-start flex-column">
-                <SimpleText>Sobre Nós</SimpleText>
-                <SimpleText>Como trabalhamos</SimpleText>
-                <SimpleText>Clientes</SimpleText>
-                <SimpleText>Serviços</SimpleText>
-                <SimpleText>Fale Conosco</SimpleText>
-              </div>
-            </InfoWrapper>
-          </Col>
-          <Col>
-            <InfoWrapper>
-              <TitleText>Blog</TitleText>
-              <div className="d-flex align-items-start flex-column">
-                <SimpleText>Mais vistos</SimpleText>
-                <SimpleText>Últimos posts</SimpleText>
-              </div>
-            </InfoWrapper>
+            <Row>
+              <Col xs="6" lg="3">
+                <InfoWrapper>
+                  <TitleText>Endereço</TitleText>
+                  <div>
+                    <SimpleText>
+                      Av. Herculano Bandeira, 513 - PinaRecife - PE, 51110-131
+                    </SimpleText>
+                  </div>
+                </InfoWrapper>
+                <InfoWrapper>
+                  <TitleText>Telefone</TitleText>
+                  <div className="d-flex align-items-start flex-column">
+                    <SimpleText>+55 81 00000.0000</SimpleText>
+                    <SimpleText>+55 81 00000.0000</SimpleText>
+                  </div>
+                </InfoWrapper>
+              </Col>
+              <Col>
+                <Row>
+                  <Col>
+                    <InfoWrapper>
+                      <TitleText>Empresa</TitleText>
+                      <div className="d-flex align-items-start flex-column">
+                        <SimpleText>Sobre Nós</SimpleText>
+                        <SimpleText>Como trabalhamos</SimpleText>
+                        <SimpleText>Clientes</SimpleText>
+                        <SimpleText>Serviços</SimpleText>
+                        <SimpleText>Fale Conosco</SimpleText>
+                      </div>
+                    </InfoWrapper>
+                  </Col>
+                  <Col>
+                    <InfoWrapper>
+                      <TitleText>Blog</TitleText>
+                      <div className="d-flex align-items-start flex-column">
+                        <SimpleText>Mais vistos</SimpleText>
+                        <SimpleText>Últimos posts</SimpleText>
+                      </div>
+                    </InfoWrapper>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
           </Col>
         </Row>
+        <SimpleText className="d-block d-sm-block d-md-block d-xl-none d-lg-none mt-2 text-center">
+          2021, todos os direitos reservados
+        </SimpleText>
       </ContainerCustom>
     </CustomFooter>
   );

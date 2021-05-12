@@ -5,6 +5,7 @@ import GlobalStyle from '../styles/globalStyles';
 import 'react-modal-video/css/modal-video.min.css';
 import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
+import 'swiper/components/pagination/pagination.min.css';
 
 const theme = {
   colors: {

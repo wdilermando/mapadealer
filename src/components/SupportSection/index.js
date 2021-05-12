@@ -62,6 +62,7 @@ const LinkAction = styled(DescriptionText)`
   font-size: 18px;
 
   a {
+    color: ${({ theme }) => theme.colors.primary};
     &:hover {
       text-decoration: none;
       color: ${({ theme }) => theme.colors.secondary};

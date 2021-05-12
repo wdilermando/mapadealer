@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Col, Row } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import background from '../../assets/images/bg1_.png';
-import SwiperCore, { Thumbs, Navigation, Pagination } from 'swiper/core';
+import SwiperCore, { Thumbs, Navigation, Autoplay } from 'swiper/core';
 
-SwiperCore.use([Thumbs, Navigation, Pagination]);
+SwiperCore.use([Thumbs, Navigation, Autoplay]);
 
 import img1 from '../../assets/images/logo.png';
 import img2 from '../../assets/images/logos/disnove.png';
@@ -18,6 +18,8 @@ const partners = [
   { id: 3, image: img3, title: 'Sael' },
   { id: 4, image: img1, title: 'Mapa Dealer' },
   { id: 5, image: img1, title: 'Mapa Dealer' },
+  { id: 6, image: img1, title: 'Mapa Dealer' },
+  { id: 7, image: img1, title: 'Mapa Dealer' },
 ];
 
 import { ContainerCustom } from '../../styles/globalStyles';
@@ -95,7 +97,6 @@ const PartnerInfo = styled.span`
 `;
 
 const PartnerSection = () => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
     <div id="customers">
       <InfoSec blur={0} bgImage={background} strength={-200}>
@@ -117,12 +118,7 @@ const PartnerSection = () => {
           <Row>
             <Col xs lg="12">
               <Testimonials>
-                <Swiper
-                  slidesPerView={1}
-                  spaceBetween={0}
-                  navigation
-                  pagination={{ clickable: true }}
-                >
+                <Swiper slidesPerView={1} spaceBetween={0} navigation>
                   {[1, 2, 3].map((item) => {
                     return (
                       <SwiperSlide key={item}>
@@ -154,14 +150,15 @@ const PartnerSection = () => {
                   <h2>Quem está com a gente</h2>
                 </TitleSection>
                 <Swiper
-                  id="thumbs"
-                  autoplay
-                  thumbs={{ swiper: thumbsSwiper }}
+                  autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                  }}
                   breakpoints={thumbBreakpoints}
                 >
                   {partners.map((item) => {
                     return (
-                      <SwiperSlide onSwiper={setThumbsSwiper} key={item.id}>
+                      <SwiperSlide key={item.id}>
                         <ImagePartner
                           src={item.image}
                           alt={item.title}
