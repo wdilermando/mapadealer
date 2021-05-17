@@ -4,7 +4,7 @@ import { Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Burger from '../Burger';
 import Menu from '../Menu';
 import styled from 'styled-components';
-import wpp from '../../assets/svg/wpp.svg';
+import wpp from '../../assets/svg/support/wpp.svg';
 import { LeadForm } from '..';
 import { motion } from 'framer-motion';
 import { APP_LOGIN } from '../../lib/constants';
@@ -42,10 +42,7 @@ const WrapperTest = styled.div`
 const NavbarCustom = () => {
   const [open, setOpen] = useState(false);
   return (
-    <Navbar
-      className="bg-mapa justify-content-between align-items-center px-4"
-      fixed="top"
-    >
+    <Navbar className="bg-mapa justify-content-between align-items-center px-4">
       <Navbar.Brand
         href="/"
         className="d-none d-sm-none d-md-none d-xl-block d-lg-block"

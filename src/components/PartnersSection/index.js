@@ -56,6 +56,7 @@ const TitleSection = styled(motion.div)`
 const DescriptionText = styled(motion.p)`
   font-size: 16px;
   font-weight: ${({ enfasis }) => (enfasis ? '700' : '500')};
+  color: ${({ theme }) => theme.colors.tertiary};
 `;
 
 const thumbBreakpoints = {
@@ -79,12 +80,11 @@ const thumbBreakpoints = {
 
 const ImagePartner = styled.img`
   width: 200px;
-  filter: grayscale(1) brightness(1);
+  filter: grayscale(1);
   height: 60px;
   object-fit: contain;
 
   &:hover {
-    filter: none;
     cursor: pointer;
   }
 `;

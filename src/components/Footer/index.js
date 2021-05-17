@@ -82,7 +82,7 @@ const Footer = () => {
           </Col>
           <Col>
             <Row>
-              <Col xs="6" lg="3">
+              <Col xs="6" lg="6">
                 <InfoWrapper>
                   <TitleText>Endereço</TitleText>
                   <div>
@@ -105,20 +105,12 @@ const Footer = () => {
                     <InfoWrapper>
                       <TitleText>Empresa</TitleText>
                       <div className="d-flex align-items-start flex-column">
-                        <SimpleText>Sobre Nós</SimpleText>
-                        <SimpleText>Como trabalhamos</SimpleText>
-                        <SimpleText>Clientes</SimpleText>
+                        <SimpleText>Sobre</SimpleText>
                         <SimpleText>Serviços</SimpleText>
-                        <SimpleText>Fale Conosco</SimpleText>
-                      </div>
-                    </InfoWrapper>
-                  </Col>
-                  <Col>
-                    <InfoWrapper>
-                      <TitleText>Blog</TitleText>
-                      <div className="d-flex align-items-start flex-column">
-                        <SimpleText>Mais vistos</SimpleText>
-                        <SimpleText>Últimos posts</SimpleText>
+                        <SimpleText>Benefícios</SimpleText>
+                        <SimpleText>Clientes</SimpleText>
+                        <SimpleText>Suporte</SimpleText>
+                        <SimpleText>Blog</SimpleText>
                       </div>
                     </InfoWrapper>
                   </Col>

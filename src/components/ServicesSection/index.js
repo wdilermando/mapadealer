@@ -2,7 +2,6 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-
 import img1 from '../../assets/svg/ead.svg';
 import img2 from '../../assets/svg/cogs.svg';
 import img3 from '../../assets/svg/platform.svg';
@@ -117,7 +116,10 @@ const WrapperDestaq = styled.div`
 const GridContainer = styled.div`
   display: grid;
   grid-gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(${({ feature }) => (feature ? '400px' : '300px')}, 1fr)
+  );
   justify-content: center;
   justify-items: center;
 `;
@@ -199,8 +201,8 @@ const ServicesSection = () => {
               </TitleSection>
             </WrapperDestaq>
           </Col>
-          <Col xs="12" lg="8">
-            <GridContainer>
+          <Col xs="12" lg="10">
+            <GridContainer feature>
               <FeatureItem>
                 <FeatureImage src={img1} alt="feature image 1" />
                 <h4>

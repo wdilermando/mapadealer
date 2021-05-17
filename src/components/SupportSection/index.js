@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 
 import { ContainerCustom } from '../../styles/globalStyles';
 
-import img1 from '../../assets/images/phone.png';
-import img2 from '../../assets/images/mail.png';
-import img3 from '../../assets/images/wpp.png';
+import img1 from '../../assets/svg/support/phone.svg';
+import img2 from '../../assets/svg/support/mail.svg';
+import img3 from '../../assets/svg/support/wpp.svg';
 
 const InfoSec = styled.div`
   background: #ffffff;
@@ -90,21 +90,21 @@ const SupportSection = () => {
           <Col lg="12" xs="12">
             <GridContainer>
               <ItemWrapper>
-                <img src={img1} />
+                <img src={img1} alt="Image call number" />
                 <DescriptionText>Ligue para o Mappa</DescriptionText>
                 <LinkAction>
                   <a href="tel: (81) 3333 3333">+55 81 3333 3333</a>
                 </LinkAction>
               </ItemWrapper>
               <ItemWrapper>
-                <img src={img2} />
+                <img src={img2} alt="Image send email" />
                 <DescriptionText>Mande um e-mail</DescriptionText>
                 <LinkAction>
                   <a href="mailto:mappa@mappa.com.br">mappa@mappa.com.br</a>
                 </LinkAction>
               </ItemWrapper>
               <ItemWrapper>
-                <img src={img3} />
+                <img src={img3} alt="Image to contact by whatsapp" />
                 <DescriptionText>Mande uma mensagem</DescriptionText>
                 <LinkAction>
                   <a href="tel: (81) 9999 9999">+55 81 9999 9999</a>
