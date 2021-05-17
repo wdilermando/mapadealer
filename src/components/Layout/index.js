@@ -8,10 +8,33 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Mapa Dealer</title>
+        <title>Mapa Dealer — Automação de processos comerciais</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <meta
+          name="title"
+          content="Mapa Dealer — Automação de processos comerciais"
+        />
+        <meta
+          name="description"
+          content="Software de automação comercial e de processos"
+        />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mapadealer.com/" />
+        <meta
+          property="og:title"
+          content="Mapa Dealer — Automação de processos comerciais"
+        />
+        <meta
+          property="og:description"
+          content="Software de automação comercial e de processos"
+        />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dyxbrraat/image/upload/v1620931145/mapa/img35_kp75dv.png"
         />
         <link
           rel="shortcut icon"

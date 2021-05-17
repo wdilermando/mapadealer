@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import LogoSrc from './../../assets/images/logo.png';
 import Link from 'next/link';
+import { buildImageUrl } from 'cloudinary-build-url';
 
 const LogoImg = styled.div`
   width: 155px;
@@ -22,10 +22,19 @@ const NavLogo = styled(Link)`
 `;
 
 const Logo = () => {
+  const url = buildImageUrl(
+    'https://res.cloudinary.com/dyxbrraat/image/upload/v1620932567/mapa/logo_y1v3ac.png',
+    {
+      cloud: {
+        cloudName: 'dyxbrraat',
+      },
+    }
+  );
+
   return (
     <NavLogo href="/#home">
       <LogoImg>
-        <img src={LogoSrc} alt="Mapa Dealer" />
+        <img src={url} alt="Mapa Dealer" />
       </LogoImg>
     </NavLogo>
   );

@@ -56,6 +56,7 @@ const Burger = ({ open, setOpen }) => {
       open={open}
       onClick={() => setOpen(!open)}
       whileHover={{ scale: 1.15 }}
+      type="button"
     >
       <div />
       <div />

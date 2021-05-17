@@ -1,17 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-
-import img1 from '../../assets/images/img22.jpg';
-import img2 from '../../assets/images/img28.jpg';
-import img3 from '../../assets/images/carrousel3.png';
 
 const ImgSlider = styled.img`
   width: 100%;
   height: 100vh;
   object-fit: cover;
-  filter: brightness(70%);
+  filter: brightness(80%);
 `;
 
 const HeroTitle = styled(motion.h2)`
@@ -34,19 +30,34 @@ const HeroSectionCarrousel = () => {
   return (
     <Carousel fade controls={false}>
       <Carousel.Item>
-        <ImgSlider src={img1} alt="sec slide" />
+        <ImgSlider
+          src={
+            'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931126/mapa/banners/b1_tshndo.png'
+          }
+          alt="first slide"
+        />
         <HeroTitle>
           CONDUZINDO PROCESSOS.{'\n'}POTENCIALIZANDO A GESTÃO.
         </HeroTitle>
       </Carousel.Item>
       <Carousel.Item>
-        <ImgSlider src={img2} alt="sec slide" />
+        <ImgSlider
+          src={
+            'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931126/mapa/banners/b2_lrssi0.png'
+          }
+          alt="second slide"
+        />
         <HeroTitle>
           VOCÊ JÁ OUVIU FALAR EM{'\n'}DIGITALIZAÇÃO DE JORNADA?
         </HeroTitle>
       </Carousel.Item>
       <Carousel.Item>
-        <ImgSlider src={img3} alt="sec slide" />
+        <ImgSlider
+          src={
+            'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931126/mapa/banners/b3_h5ek2a.png'
+          }
+          alt="third slide"
+        />
         <HeroTitle>
           MAIS QUE UM SOFTWARE OU UM PROGRAMA:{'\n'}SOMOS UMA METODOLOGIA
         </HeroTitle>

@@ -159,9 +159,10 @@ const InfoSection = () => {
                     src={playImage}
                     whileHover={{ scale: 1.2 }}
                     onClick={() => setOpen(true)}
+                    alt="playbutton"
                   />
                 </span>
-                <img src={image} />
+                <img src={image} alt="image with man" />
               </ImageSection>
             </Col>
           </Row>

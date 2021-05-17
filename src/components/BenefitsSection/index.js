@@ -3,9 +3,6 @@ import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import img1 from '../../assets/images/benefits.png';
-import { ContainerCustom } from '../../styles/globalStyles';
-
 const InfoSec = styled.div`
   background: #ffffff;
   color: ${({ theme }) => theme.primaryDark};
@@ -137,7 +134,12 @@ const BenefitsSection = () => {
           </BenefitsWrapper>
         </Col>
         <Col lg="4" xs="12">
-          <ImgSideSection src={img1} />
+          <ImgSideSection
+            src={
+              'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931145/mapa/benefits1_qgpspm.png'
+            }
+            alt="benefits section image"
+          />
         </Col>
       </Row>
     </InfoSec>

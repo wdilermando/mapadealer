@@ -60,10 +60,10 @@ const SocialSection = () => {
             <TitleSection fSize={'32px'}>Plataformas de Acesso</TitleSection>
             <IconsWrapper>
               <StyledLink href="/">
-                <IconImage src={img3} />
+                <IconImage src={img3} alt="google play store" />
               </StyledLink>
               <StyledLink href="/">
-                <IconImage src={img4} />
+                <IconImage src={img4} alt="apple app store" />
               </StyledLink>
             </IconsWrapper>
           </Col>

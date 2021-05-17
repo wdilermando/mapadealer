@@ -3,7 +3,7 @@ import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import img1 from '../../assets/images/img36.png';
+import img1 from '../../assets/images/info1.png';
 import img2 from '../../assets/images/map.gif';
 
 const InfoSec = styled.div`
@@ -53,7 +53,11 @@ const InfoSection2 = () => {
     <InfoSec>
       <Row>
         <Col lg="4" xs="12">
-          <ImgSideSection src={img1} />
+          <ImgSideSection
+            src={
+              'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931145/mapa/info1_sozyya.png'
+            }
+          />
         </Col>
         <Col xs="12" lg="8">
           <div className="d-flex flex-column p-4">
@@ -74,7 +78,13 @@ const InfoSection2 = () => {
               Dessa forma, conseguimos conduzir os processos de venda dentro de
               métricas pré estabelecidas com responsabilidade e planejamento.
             </DescriptionText>
-            <img src={img2} width="80%" />
+            <img
+              src={
+                'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931485/mapa/map_vjwjyh.gif'
+              }
+              width="80%"
+              alt="map animation"
+            />
             <SmallestText>
               A Metodologia Mappa ajusta toda a comunicação e acompanhamento de
               jornadas, incentivando a produtividade de todo o time envolvido no

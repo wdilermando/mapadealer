@@ -202,25 +202,25 @@ const ServicesSection = () => {
           <Col xs="12" lg="8">
             <GridContainer>
               <FeatureItem>
-                <FeatureImage src={img1} />
+                <FeatureImage src={img1} alt="feature image 1" />
                 <h4>
                   Treinamento à <strong>distância</strong>
                 </h4>
               </FeatureItem>
               <FeatureItem>
-                <FeatureImage src={img2} />
+                <FeatureImage src={img2} alt="feature image 2" />
                 <h4>
                   Plataforma <strong>Web</strong>
                 </h4>
               </FeatureItem>
               <FeatureItem>
-                <FeatureImage src={img3} />
+                <FeatureImage src={img3} alt="feature image 3" />
                 <h4>
                   Integra com <strong>ERPs</strong> diversos
                 </h4>
               </FeatureItem>
               <FeatureItem>
-                <FeatureImage src={img4} />
+                <FeatureImage src={img4} alt="feature image 4" />
                 <h4>
                   Suporte <strong>Online</strong>
                 </h4>

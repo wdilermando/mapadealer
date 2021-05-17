@@ -14,8 +14,18 @@ import img3 from '../../assets/images/logos/sael.png';
 
 const partners = [
   { id: 1, image: img1, title: 'Mapa Dealer' },
-  { id: 2, image: img2, title: 'Disnove' },
-  { id: 3, image: img3, title: 'Sael' },
+  {
+    id: 2,
+    image:
+      'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931154/mapa/logos/disnove_qo7vab.png',
+    title: 'Disnove',
+  },
+  {
+    id: 3,
+    image:
+      'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931154/mapa/logos/sael_mjhc6x.png',
+    title: 'Sael',
+  },
   { id: 4, image: img1, title: 'Mapa Dealer' },
   { id: 5, image: img1, title: 'Mapa Dealer' },
   { id: 6, image: img1, title: 'Mapa Dealer' },

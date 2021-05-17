@@ -22,13 +22,15 @@ const LeadForm = () => {
       </Form.Label>
       <Form.Control
         className="mb-2 mr-sm-2"
-        id="inlineFormInputName2"
+        id="inlineFormInputName"
         placeholder="Nome"
+        name="name"
       />
       <Form.Control
         className="mb-2 mr-sm-2"
         id="inlineFormInputName2"
         placeholder="Email"
+        name="email"
       />
       <CustomButton type="submit">Enviar</CustomButton>
     </Form>

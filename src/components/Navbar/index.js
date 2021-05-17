@@ -45,7 +45,6 @@ const NavbarCustom = () => {
     <Navbar
       className="bg-mapa justify-content-between align-items-center px-4"
       fixed="top"
-      collapseOnSelect
     >
       <Navbar.Brand
         href="/"
@@ -73,12 +72,12 @@ const NavbarCustom = () => {
             }
           >
             <WhatsappLink whileHover={{ scale: 1.15 }}>
-              <img src={wpp} />
+              <img src={wpp} alt="whatsapp button" />
             </WhatsappLink>
           </OverlayTrigger>
 
           <LoginLink className="mr-3">
-            <a href={APP_LOGIN} target="_blank">
+            <a href={APP_LOGIN} rel="noreferrer" target="_blank">
               Login
             </a>
           </LoginLink>
