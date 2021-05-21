@@ -8,6 +8,7 @@ import img3 from '../../assets/images/googleplay.png';
 import img4 from '../../assets/images/appstore.png';
 import { ContainerCustom } from '../../styles/globalStyles';
 import { SocialIcons } from '..';
+import { APPLE_STORE, PLAY_GOOGLE } from '../../lib/constants';
 
 const InfoSec = styled.div`
   background: #ffffff;
@@ -59,11 +60,15 @@ const SocialSection = () => {
           <Col xs="12" lg="6">
             <TitleSection fSize={'32px'}>Plataformas de Acesso</TitleSection>
             <IconsWrapper>
-              <StyledLink href="/">
-                <IconImage src={img3} alt="google play store" />
+              <StyledLink href={PLAY_GOOGLE}>
+                <a target="_blank">
+                  <IconImage src={img3} alt="google play store" />
+                </a>
               </StyledLink>
-              <StyledLink href="/">
-                <IconImage src={img4} alt="apple app store" />
+              <StyledLink href={APPLE_STORE}>
+                <a target="_blank">
+                  <IconImage src={img4} alt="apple app store" />
+                </a>
               </StyledLink>
             </IconsWrapper>
           </Col>

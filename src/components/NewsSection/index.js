@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Image from 'next/image';
 import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -7,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Pagination, Autoplay } from 'swiper/core';
 import { ContainerCustom } from '../../styles/globalStyles';
 import { Parallax } from 'react-parallax';
-import background from '../../assets/images/bgchange.png';
+import background from '../../assets/images/bgServices.png';
 import Link from 'next/link';
 
 SwiperCore.use([Pagination, Autoplay]);
@@ -27,7 +28,7 @@ const CardThumb = styled.div`
   min-width: 250px;
   margin-bottom: 10vh;
   cursor: pointer;
-  img {
+  span {
     width: 100%;
   }
 `;
@@ -54,7 +55,7 @@ const ThumbTitle = styled.h3`
   font-size: 18px;
   font-weight: 600;
   &:hover {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.secondary};
   }
 `;
 
@@ -91,7 +92,7 @@ const DescriptionText = styled(motion.p)`
 const NewsSection = ({ posts }) => {
   return (
     <div id="blog">
-      <InfoSec blur={0} bgImage={background} strength={-100}>
+      <InfoSec blur={1} bgImage={background} strength={-100}>
         <ContainerCustom>
           <Row className="mb-4">
             <Col lg="10" xs>
@@ -122,7 +123,15 @@ const NewsSection = ({ posts }) => {
                     <SwiperSlide key={item.id} zoom tag="div">
                       <Link href={`/blog/${item.slug}`}>
                         <CardThumb>
-                          <img src={item.postImage} alt={item.title} />
+                          <span>
+                            <Image
+                              src={item.postImage}
+                              alt={item.title}
+                              height="auto"
+                              width="auto"
+                              objectFit="cover"
+                            />
+                          </span>
                           <TextSmall destac>{item.category}</TextSmall>
                           <ThumbTitle>{item.title}</ThumbTitle>
                           <TextSmall>{`Publicado por ${item.author} - ${item.postDate}`}</TextSmall>

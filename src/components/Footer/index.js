@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Col, Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import Logo from '../Logo';
@@ -7,11 +8,18 @@ import img2 from '../../assets/images/footer/ig.png';
 import img3 from '../../assets/images/footer/yt.png';
 import img4 from '../../assets/images/footer/fb.png';
 import { ContainerCustom } from '../../styles/globalStyles';
+import {
+  FACEBOOK_LINK,
+  INSTAGRAM_LINK,
+  LINKEDIN_LINK,
+  YOUTUBE_LINK,
+} from '../../lib/constants';
+import Link from 'next/link';
 
 const CustomFooter = styled.div`
   background: #efefef;
   padding: 2% 5%;
-  color: #222;
+  color: ${({ theme }) => theme.colors.tertiary};
 `;
 
 const TitleText = styled.h3`
@@ -22,6 +30,7 @@ const TitleText = styled.h3`
 
 const SimpleText = styled.small`
   font-size: 13px;
+  white-space: pre-wrap;
 `;
 
 const InfoWrapper = styled.div`
@@ -36,13 +45,10 @@ const IconsWrapper = styled.div`
   justify-content: start;
   flex-direction: row;
   margin-top: 1em;
-`;
 
-const IconImage = styled.img`
-  width: 25px;
-  height: 25px;
-  margin-right: 15px;
-  cursor: pointer;
+  a {
+    margin-right: 15px;
+  }
 `;
 
 const CompanyInfo = styled.div`
@@ -59,6 +65,19 @@ const CompanyInfo = styled.div`
   }
 `;
 
+const Links = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  a {
+    &:hover {
+      text-decoration: none;
+      color: ${({ theme }) => theme.colors.secondary};
+    }
+  }
+`;
+
 const Footer = () => {
   return (
     <CustomFooter>
@@ -69,14 +88,44 @@ const Footer = () => {
               <div>
                 <Logo />
                 <IconsWrapper>
-                  <IconImage src={img2} />
-                  <IconImage src={img1} />
-                  <IconImage src={img4} />
-                  <IconImage src={img3} />
+                  <Link href={INSTAGRAM_LINK} rel="noreferrer">
+                    <a target="_blank">
+                      <Image
+                        src={img2}
+                        alt="instagram link"
+                        width={25}
+                        height={25}
+                      />
+                    </a>
+                  </Link>
+                  <a href={LINKEDIN_LINK} rel="noreferrer" target="_blank">
+                    <Image
+                      src={img1}
+                      alt="linkedin link"
+                      width={25}
+                      height={25}
+                    />
+                  </a>
+                  <a href={FACEBOOK_LINK} rel="noreferrer" target="_blank">
+                    <Image
+                      src={img4}
+                      alt="facebook link"
+                      width={25}
+                      height={25}
+                    />
+                  </a>
+                  <a href={YOUTUBE_LINK} rel="noreferrer" target="_blank">
+                    <Image
+                      src={img3}
+                      alt="youtube link"
+                      width={25}
+                      height={25}
+                    />
+                  </a>
                 </IconsWrapper>
               </div>
               <SimpleText className="d-none d-sm-none d-md-none d-xl-block d-lg-block">
-                2021, todos os direitos reservados
+                2021, Todos os direitos reservados
               </SimpleText>
             </CompanyInfo>
           </Col>
@@ -87,16 +136,21 @@ const Footer = () => {
                   <TitleText>Endereço</TitleText>
                   <div>
                     <SimpleText>
-                      Av. Herculano Bandeira, 513 - PinaRecife - PE, 51110-131
+                      Av. Herculano Bandeira, 513 - Pina{'\n'}Recife - PE,
+                      51110-131
                     </SimpleText>
                   </div>
                 </InfoWrapper>
                 <InfoWrapper>
                   <TitleText>Telefone</TitleText>
-                  <div className="d-flex align-items-start flex-column">
-                    <SimpleText>+55 81 00000.0000</SimpleText>
-                    <SimpleText>+55 81 00000.0000</SimpleText>
-                  </div>
+                  <Links>
+                    <a href="tel: (81) 9999 9999">
+                      <SimpleText>+55 81 00000.0000</SimpleText>
+                    </a>
+                    <a href="tel: (81) 9999 9999">
+                      <SimpleText>+55 81 00000.0000</SimpleText>
+                    </a>
+                  </Links>
                 </InfoWrapper>
               </Col>
               <Col>
@@ -104,14 +158,28 @@ const Footer = () => {
                   <Col>
                     <InfoWrapper>
                       <TitleText>Empresa</TitleText>
-                      <div className="d-flex align-items-start flex-column">
-                        <SimpleText>Sobre</SimpleText>
-                        <SimpleText>Serviços</SimpleText>
-                        <SimpleText>Benefícios</SimpleText>
-                        <SimpleText>Clientes</SimpleText>
-                        <SimpleText>Suporte</SimpleText>
-                        <SimpleText>Blog</SimpleText>
-                      </div>
+                      <Links>
+                        <a href="/#about">
+                          <SimpleText>Sobre</SimpleText>
+                        </a>
+                        <a href="/#services">
+                          <SimpleText>Serviços</SimpleText>
+                        </a>
+                        <a href="/#benefits">
+                          <SimpleText>Benefícios</SimpleText>
+                        </a>
+                        <a href="/#customers">
+                          <SimpleText>Clientes</SimpleText>
+                        </a>
+                        <a href="/#support">
+                          <SimpleText>Suporte</SimpleText>
+                        </a>
+                        <a href="/#blog">
+                          <SimpleText>
+                            <strong>Blog</strong>
+                          </SimpleText>
+                        </a>
+                      </Links>
                     </InfoWrapper>
                   </Col>
                 </Row>

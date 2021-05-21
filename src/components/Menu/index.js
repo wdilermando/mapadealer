@@ -38,9 +38,7 @@ export const StyledMenu = styled.nav`
     }
 
     &:hover {
-      color: ${({ theme }) => theme.primaryHover};
-      text-decoration: underline;
-      text-decoration-color: ${({ theme }) => theme.primaryHover};
+      color: ${({ theme }) => theme.colors.secondary};
       transition: color 0.3s linear;
     }
   }
@@ -49,12 +47,25 @@ export const StyledMenu = styled.nav`
 const Menu = ({ open }) => {
   return (
     <StyledMenu open={open}>
-      <a href="#about">Sobre</a>
-      <a href="#services">Serviços</a>
-      <a href="#customers">Clientes</a>
-      <a href="#support">Suporte</a>
-      <a href="#blog">Blog</a>
-      <a href={APP_LOGIN} target="_blank">
+      <a href="/#about" rel="noopener">
+        Sobre
+      </a>
+      <a href="/#services" rel="noopener">
+        Serviços
+      </a>
+      <a href="/#benefits" rel="noopener">
+        Benefícios
+      </a>
+      <a href="/#customers" rel="noopener">
+        Clientes
+      </a>
+      <a href="/#support" rel="noopener">
+        Suporte
+      </a>
+      <a href="/#blog" rel="noopener">
+        Blog
+      </a>
+      <a href={APP_LOGIN} target="_blank" rel="noreferrer">
         Login
       </a>
     </StyledMenu>

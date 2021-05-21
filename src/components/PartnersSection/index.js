@@ -1,19 +1,23 @@
 import React from 'react';
+import Image from 'next/image';
 import styled from 'styled-components';
 import { Col, Row } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import background from '../../assets/images/bg1_.png';
+import background from '../../assets/images/bgBenefits.png';
 import SwiperCore, { Thumbs, Navigation, Autoplay } from 'swiper/core';
 
 SwiperCore.use([Thumbs, Navigation, Autoplay]);
 
 import img1 from '../../assets/images/logo.png';
-import img2 from '../../assets/images/logos/disnove.png';
-import img3 from '../../assets/images/logos/sael.png';
 
 const partners = [
-  { id: 1, image: img1, title: 'Mapa Dealer' },
+  {
+    id: 1,
+    image:
+      'https://res.cloudinary.com/dyxbrraat/image/upload/v1621515886/mapa/logos/Group_13_bmzlgu.png',
+    title: 'Mapa Dealer',
+  },
   {
     id: 2,
     image:
@@ -23,13 +27,9 @@ const partners = [
   {
     id: 3,
     image:
-      'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931154/mapa/logos/sael_mjhc6x.png',
+      'https://res.cloudinary.com/dyxbrraat/image/upload/v1621515854/mapa/logos/Sael_hu7pkf.png',
     title: 'Sael',
   },
-  { id: 4, image: img1, title: 'Mapa Dealer' },
-  { id: 5, image: img1, title: 'Mapa Dealer' },
-  { id: 6, image: img1, title: 'Mapa Dealer' },
-  { id: 7, image: img1, title: 'Mapa Dealer' },
 ];
 
 import { ContainerCustom } from '../../styles/globalStyles';
@@ -78,10 +78,7 @@ const thumbBreakpoints = {
   },
 };
 
-const ImagePartner = styled.img`
-  width: 200px;
-  filter: grayscale(1);
-  height: 60px;
+const ImagePartner = styled(Image)`
   object-fit: contain;
 
   &:hover {
@@ -106,18 +103,21 @@ const PartnerInfo = styled.span`
   color: ${({ theme }) => theme.primaryDark};
 `;
 
+const PartnerWrapper = styled.div`
+  background-color: rgb(250, 250, 250, 0.5);
+  padding: 10vh 10vh;
+`;
+
 const PartnerSection = () => {
   return (
     <div id="customers">
-      <InfoSec blur={0} bgImage={background} strength={-200}>
+      <InfoSec blur={1} bgImage={background} strength={-150}>
         <ContainerCustom>
-          <Row className="mb-5">
+          <Row className="mb-5 mt-5">
             <Col lg="6" xs>
               <TitleSection fSize={'32px'}>
                 <h2>Clientes</h2>
               </TitleSection>
-            </Col>
-            <Col xs lg="6">
               <DescriptionText>
                 Saiba o que os nossos clientes estão achando da revolução
                 digital que o Mappa oferece para os processos de venda das suas
@@ -153,35 +153,35 @@ const PartnerSection = () => {
               </Testimonials>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <div className="mb-5 mt-3">
-                <TitleSection fSize={'32px'}>
-                  <h2>Quem está com a gente</h2>
-                </TitleSection>
-                <Swiper
-                  autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                  }}
-                  breakpoints={thumbBreakpoints}
-                >
-                  {partners.map((item) => {
-                    return (
-                      <SwiperSlide key={item.id}>
-                        <ImagePartner
-                          src={item.image}
-                          alt={item.title}
-                          width="200px"
-                        />
-                      </SwiperSlide>
-                    );
-                  })}
-                </Swiper>
-              </div>
-            </Col>
-          </Row>
         </ContainerCustom>
+        <PartnerWrapper>
+          <ContainerCustom>
+            <TitleSection fSize={'32px'}>
+              <h2>Quem está com a gente</h2>
+            </TitleSection>
+            <Swiper
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              breakpoints={thumbBreakpoints}
+            >
+              {partners.map((item) => {
+                return (
+                  <SwiperSlide key={item.id}>
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={400}
+                      height={100}
+                      objectFit="contain"
+                    />
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </ContainerCustom>
+        </PartnerWrapper>
       </InfoSec>
     </div>
   );

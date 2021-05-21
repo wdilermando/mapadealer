@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import Logo from '../Logo';
-import { Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Burger from '../Burger';
 import Menu from '../Menu';
 import styled from 'styled-components';
 import wpp from '../../assets/svg/support/wpp.svg';
 import { LeadForm } from '..';
 import { motion } from 'framer-motion';
-import { APP_LOGIN } from '../../lib/constants';
+import { APP_LOGIN, WHATSAPP_LINK } from '../../lib/constants';
 
 const LoginLink = styled.span`
   font-weight: 600;
@@ -50,7 +51,7 @@ const NavbarCustom = () => {
         <Logo />
       </Navbar.Brand>
       <div className="d-none d-sm-none d-md-none d-xl-block d-lg-block">
-        <LeadForm />
+        <LeadForm inline />
       </div>
       <WrapperTest>
         <div className="d-flex justify-content-between align-items-center">
@@ -69,7 +70,9 @@ const NavbarCustom = () => {
             }
           >
             <WhatsappLink whileHover={{ scale: 1.15 }}>
-              <img src={wpp} alt="whatsapp button" />
+              <a href={WHATSAPP_LINK} rel="noreferrer" target="_blank">
+                <Image src={wpp} alt="whatsapp button" width={30} height={30} />
+              </a>
             </WhatsappLink>
           </OverlayTrigger>
 
@@ -82,7 +85,7 @@ const NavbarCustom = () => {
           <Menu open={open} setOpen={setOpen} />
         </div>
         <div className="d-block d-sm-block d-md-block d-xl-none d-lg-none mt-2">
-          <LeadForm />
+          <LeadForm inline />
         </div>
       </WrapperTest>
     </Navbar>

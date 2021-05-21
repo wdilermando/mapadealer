@@ -1,24 +1,28 @@
-import { Parallax } from 'react-parallax';
+import { Background, Parallax } from 'react-parallax';
+import Image from 'next/image';
 import styled from 'styled-components';
 import { getAllPosts, getPostBySlug } from '../../lib/api';
-import background from '../../assets/images/bg1_.png';
+import background from '../../assets/images/bgServices.png';
 import { Col, Row } from 'react-bootstrap';
 import { ContainerCustom } from '../../styles/globalStyles';
 import { SocialIcons } from '../../components';
 
-const HeroSectionPost = styled(Parallax)`
+const HeroSectionPost = styled.div`
   height: 50vh;
   width: 100%;
+  @media screen and (max-width: 450px) {
+    height: 25vh;
+  }
 `;
 
 const ContentBg = styled(Parallax)`
   height: auto;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.primaryLight};
 `;
 
 const PostContent = styled.div`
   background-color: #fbfbfb;
-  color: #000;
+  color: ${({ theme }) => theme.primaryDark};
   padding: 3em;
   margin-bottom: 3em;
 `;
@@ -26,7 +30,7 @@ const PostContent = styled.div`
 const SocialCard = styled.div`
   margin-top: 2em;
   margin-bottom: 2em;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.primaryLight};
   box-shadow: 0px 5px 10px 0px #0000001a;
   border-radius: 20px;
   height: 25vh;
@@ -39,7 +43,7 @@ const TitleSection = styled.h2`
   white-space: pre-wrap;
   font-size: ${({ fSize }) => fSize};
   text-align: left;
-  color: #203663;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const TitlePostWrapper = styled.div`
@@ -49,25 +53,31 @@ const TitlePostWrapper = styled.div`
   margin-bottom: 2em;
 
   p {
-    color: #203663;
+    color: ${({ theme }) => theme.colors.primary};
   }
   h3 {
-    color: #000000;
+    color: ${({ theme }) => theme.primaryDark};
     font-weight: 700;
   }
   small {
-    color: #a7a7a7;
+    color: ${({ theme }) => theme.colors.tertiary};
   }
 `;
 
 export default function Post({ post = {} }) {
   return (
     <>
-      <HeroSectionPost
-        blur={0}
-        bgImage={post.postImage}
-        strength={-200}
-      ></HeroSectionPost>
+      <HeroSectionPost>
+        <Image
+          src={post.postImage}
+          layout="responsive"
+          width={1440}
+          height={685}
+          objectFit="cover"
+          objectPosition="50% 50%"
+        />
+      </HeroSectionPost>
+
       <ContentBg blur={0} bgImage={background} strength={-200}>
         <ContainerCustom>
           <Row>

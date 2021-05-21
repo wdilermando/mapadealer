@@ -1,5 +1,7 @@
 import { motion, useAnimation } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { Parallax } from 'react-parallax';
 import { Col, Row } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
@@ -8,7 +10,6 @@ import playImage from '../../assets/images/play.png';
 import background from '../../assets/images/bg1.png';
 import { ContainerCustom } from '../../styles/globalStyles';
 import ModalVideo from 'react-modal-video';
-import { Parallax } from 'react-parallax';
 
 const InfoSec = styled(Parallax)`
   background: #f8f8f8;
@@ -34,11 +35,12 @@ const TitleSection = styled(motion.h2)`
 const DescriptionText = styled(motion.p)`
   font-size: 16px;
   font-weight: 500;
+  color: ${({ theme }) => theme.colors.tertiary};
 `;
 
 const PlayButton = styled(motion.img)`
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   cursor: pointer;
 `;
 
@@ -50,11 +52,7 @@ const ImageSection = styled(motion.div)`
 
   span {
     position: absolute;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
+    z-index: 10;
   }
 `;
 
@@ -77,7 +75,12 @@ const InfoSection = () => {
   }, [controls, inView]);
   return (
     <div id="about">
-      <InfoSec blur={0} bgImage={background} strength={-200}>
+      <InfoSec
+        blur={1}
+        bgImage={background}
+        strength={-200}
+        bgImageAlt="background image section 1"
+      >
         <ContainerCustom>
           <Row>
             <Col xs="12" md="5" lg="5">
@@ -125,7 +128,7 @@ const InfoSection = () => {
                 Mais que um software ou um programa, nós somos uma metodologia
                 que provoca a mudança através da tecnologia de digitalização de
                 jornadas. Nossa plataforma surge no intuito de unir e gerenciar
-                processos internos de revenda de forma automática, completa e
+                processos internos da revenda de forma automática, completa e
                 informatizada, agilizando negócios e integrando colaboradores
                 que fazem parte de sistemas corporativos de venda.
               </DescriptionText>
@@ -162,7 +165,12 @@ const InfoSection = () => {
                     alt="playbutton"
                   />
                 </span>
-                <img src={image} alt="image with man" />
+                <Image
+                  src={image}
+                  alt="image with man"
+                  width={785}
+                  height={418}
+                />
               </ImageSection>
             </Col>
           </Row>

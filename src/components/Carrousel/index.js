@@ -2,6 +2,7 @@ import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const ImgSlider = styled.img`
   width: 100%;
@@ -22,7 +23,7 @@ const HeroTitle = styled(motion.h2)`
   white-space: pre-wrap;
 
   @media screen and (max-width: 450px) {
-    font-size: 1.8em;
+    font-size: 1.5em;
   }
 `;
 
@@ -30,33 +31,42 @@ const HeroSectionCarrousel = () => {
   return (
     <Carousel fade controls={false}>
       <Carousel.Item>
-        <ImgSlider
+        <Image
           src={
             'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931126/mapa/banners/b1_tshndo.png'
           }
           alt="first slide"
+          width={1440}
+          height={685}
+          layout="responsive"
         />
         <HeroTitle>
           CONDUZINDO PROCESSOS.{'\n'}POTENCIALIZANDO A GESTÃO.
         </HeroTitle>
       </Carousel.Item>
       <Carousel.Item>
-        <ImgSlider
+        <Image
           src={
             'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931126/mapa/banners/b2_lrssi0.png'
           }
           alt="second slide"
+          width={1440}
+          height={685}
+          layout="responsive"
         />
         <HeroTitle>
           VOCÊ JÁ OUVIU FALAR EM{'\n'}DIGITALIZAÇÃO DE JORNADA?
         </HeroTitle>
       </Carousel.Item>
       <Carousel.Item>
-        <ImgSlider
+        <Image
           src={
             'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931126/mapa/banners/b3_h5ek2a.png'
           }
           alt="third slide"
+          width={1440}
+          height={685}
+          layout="responsive"
         />
         <HeroTitle>
           MAIS QUE UM SOFTWARE OU UM PROGRAMA:{'\n'}SOMOS UMA METODOLOGIA

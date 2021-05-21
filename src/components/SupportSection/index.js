@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -7,11 +8,11 @@ import { ContainerCustom } from '../../styles/globalStyles';
 
 import img1 from '../../assets/svg/support/phone.svg';
 import img2 from '../../assets/svg/support/mail.svg';
-import img3 from '../../assets/svg/support/wpp.svg';
+import img3 from '../../assets/svg/support/wpp2.svg';
 
 const InfoSec = styled.div`
-  background: #ffffff;
-  color: ${({ theme }) => theme.primaryDark};
+  background: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.primaryLight};
   height: auto;
   padding-top: 10vh;
   padding-bottom: 10vh;
@@ -31,41 +32,40 @@ const TitleSection = styled(motion.div)`
 const DescriptionText = styled(motion.p)`
   font-size: 16px;
   font-weight: 500;
+  color: ${({ theme }) => theme.primaryLight};
 `;
 
-const GridContainer = styled.div`
-  display: grid;
-  grid-gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  justify-content: center;
-  justify-items: center;
-`;
-
-const ItemWrapper = styled.article`
-  background: #ffffff;
+const ItemsWrapper = styled.div`
+  display: flex;
   flex-direction: column;
-  height: 200px;
+  justify-content: space-between;
+  align-items: flex-start;
+`;
+
+const ItemWrapper = styled.div`
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: start;
   width: 300px;
   color: ${({ theme }) => theme.primaryDark};
-  text-align: center;
+  margin-top: 5vh;
 
-  img {
-    height: 30%;
-    margin-bottom: 30px;
-    margin-top: 30px;
+  span {
+    margin-left: 20px;
   }
 `;
 
 const LinkAction = styled(DescriptionText)`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.primaryLight};
   font-weight: 700;
   font-size: 18px;
 
   a {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.primaryLight};
     &:hover {
       text-decoration: none;
-      color: ${({ theme }) => theme.colors.secondary};
+      color: ${({ theme }) => theme.primaryLight};
     }
   }
 `;
@@ -87,30 +87,60 @@ const SupportSection = () => {
           </Col>
         </Row>
         <Row>
-          <Col lg="12" xs="12">
-            <GridContainer>
+          <Col lg="8" xs="12">
+            <ItemsWrapper>
               <ItemWrapper>
-                <img src={img1} alt="Image call number" />
-                <DescriptionText>Ligue para o Mappa</DescriptionText>
-                <LinkAction>
-                  <a href="tel: (81) 3333 3333">+55 81 3333 3333</a>
-                </LinkAction>
+                <Image
+                  src={img1}
+                  alt="Image call number"
+                  width={60}
+                  height={60}
+                />
+                <span>
+                  <DescriptionText>Ligue para o Mappa</DescriptionText>
+                  <LinkAction>
+                    <a href="tel: (81) 3333 3333">+55 81 3333 3333</a>
+                  </LinkAction>
+                </span>
               </ItemWrapper>
               <ItemWrapper>
-                <img src={img2} alt="Image send email" />
-                <DescriptionText>Mande um e-mail</DescriptionText>
-                <LinkAction>
-                  <a href="mailto:mappa@mappa.com.br">mappa@mappa.com.br</a>
-                </LinkAction>
+                <Image
+                  src={img2}
+                  alt="Image send email"
+                  width={60}
+                  height={60}
+                />
+                <span>
+                  <DescriptionText>Mande um e-mail</DescriptionText>
+                  <LinkAction>
+                    <a href="mailto:mappa@mappa.com.br">mappa@mappa.com.br</a>
+                  </LinkAction>
+                </span>
               </ItemWrapper>
               <ItemWrapper>
-                <img src={img3} alt="Image to contact by whatsapp" />
-                <DescriptionText>Mande uma mensagem</DescriptionText>
-                <LinkAction>
-                  <a href="tel: (81) 9999 9999">+55 81 9999 9999</a>
-                </LinkAction>
+                <Image
+                  src={img3}
+                  alt="Image to contact by whatsapp"
+                  width={60}
+                  height={60}
+                />
+                <span>
+                  <DescriptionText>Mande uma mensagem</DescriptionText>
+                  <LinkAction>
+                    <a href="tel: (81) 9999 9999">+55 81 9999 9999</a>
+                  </LinkAction>
+                </span>
               </ItemWrapper>
-            </GridContainer>
+            </ItemsWrapper>
+          </Col>
+          <Col>
+            <Image
+              src={
+                'https://res.cloudinary.com/dyxbrraat/image/upload/v1621520187/mapa/Asset_5_1_fybuc1.png'
+              }
+              alt="support asset"
+              layout="fill"
+            />
           </Col>
         </Row>
       </ContainerCustom>

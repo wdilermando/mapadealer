@@ -11,7 +11,7 @@ const InfoSec = styled.div`
 
 const ImgSideSection = styled.img`
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   object-fit: cover;
   @media screen and (max-width: 450px) {
     height: 30vh;
@@ -79,7 +79,7 @@ const BenefitsWrapper = styled.div`
 
 const BenefitsSection = () => {
   return (
-    <InfoSec>
+    <InfoSec id="benefits">
       <Row>
         <Col xs="12" lg="8">
           <BenefitsWrapper>
@@ -91,10 +91,13 @@ const BenefitsSection = () => {
                   <li>Proteção efetiva de dados</li>
                   <li>Maior sensação de segurança</li>
                   <li>Agilidade no processo de compra</li>
+                  <li>
+                    Comodidade para acompanhar toda a venda através do celular
+                  </li>
                 </ul>
               </BenefitWrapper>
               <BenefitWrapper>
-                <span>Para o Cliente:</span>
+                <span>Para o Concessionário:</span>
                 <ul>
                   <li>Armazenamento de dados mais seguro e inteligente</li>
                   <li>Melhoria nos canais de acesso a informações</li>
