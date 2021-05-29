@@ -43,7 +43,10 @@ const WrapperTest = styled.div`
 const NavbarCustom = () => {
   const [open, setOpen] = useState(false);
   return (
-    <Navbar className="bg-mapa justify-content-between align-items-center px-4">
+    <Navbar
+      className="bg-mapa justify-content-between align-items-center px-4"
+      fixed="top"
+    >
       <Navbar.Brand
         href="/"
         className="d-none d-sm-none d-md-none d-xl-block d-lg-block"

@@ -21,8 +21,8 @@ const ProposalText = styled.h5`
   color: ${({ theme }) => theme.colors.tertiary};
   font-size: 12px;
   white-space: ${({ inline }) => (inline ? 'pre-wrap' : 'normal')};
-  width: ${({ inline }) => (inline ? '5vh' : 'auto')};
-  margin-right: 5vh;
+  width: ${({ inline }) => (inline ? '8vw' : 'auto')};
+  /* margin-right: 2vw; */
 `;
 
 const CustomFormInput = styled(Form.Control)`
@@ -55,7 +55,7 @@ const LeadForm = ({ inline }) => {
       }}
       render={({ values, handleChange, handleSubmit }) => (
         <Form onSubmit={handleSubmit} inline={inline}>
-          <ProposalText inline={inline}>SOLICITE PROPOSTA</ProposalText>
+          <ProposalText inline={inline}>SOLICITE UMA PROPOSTA</ProposalText>
           <CustomFormInput
             required
             type="text"

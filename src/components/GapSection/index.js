@@ -38,6 +38,11 @@ const DescriptionText = styled(motion.p)`
   color: ${({ theme }) => theme.colors.tertiary};
 `;
 
+const FormWrapper = styled.div`
+  margin: 0 auto;
+  width: 25vw;
+`;
+
 const GapSection = () => {
   return (
     <InfoSec>
@@ -58,7 +63,9 @@ const GapSection = () => {
             </DescriptionText>
           </Col>
           <Col lg="6" xs="12">
-            <LeadForm />
+            <FormWrapper>
+              <LeadForm />
+            </FormWrapper>
           </Col>
         </Row>
       </ContainerCustom>

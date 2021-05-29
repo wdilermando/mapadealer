@@ -15,19 +15,19 @@ const partners = [
   {
     id: 1,
     image:
-      'https://res.cloudinary.com/dyxbrraat/image/upload/v1621515886/mapa/logos/Group_13_bmzlgu.png',
-    title: 'Mapa Dealer',
+      'https://res.cloudinary.com/dyxbrraat/image/upload/v1622301155/mapa/logos/sael__u4dtom.png',
+    title: 'Sael',
   },
   {
     id: 2,
     image:
-      'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931154/mapa/logos/disnove_qo7vab.png',
+      'https://res.cloudinary.com/dyxbrraat/image/upload/v1622301155/mapa/logos/disnove__bz1lwj.png',
     title: 'Disnove',
   },
   {
     id: 3,
     image:
-      'https://res.cloudinary.com/dyxbrraat/image/upload/v1621515854/mapa/logos/Sael_hu7pkf.png',
+      'https://res.cloudinary.com/dyxbrraat/image/upload/v1622301155/mapa/logos/autorepasse_upjpnn.png',
     title: 'Sael',
   },
 ];
@@ -59,32 +59,24 @@ const DescriptionText = styled(motion.p)`
   color: ${({ theme }) => theme.colors.tertiary};
 `;
 
-const thumbBreakpoints = {
-  960: {
-    slidesPerView: 5,
-    spaceBetween: 0,
-  },
-  720: {
-    slidesPerView: 4,
-    spaceBetween: 2,
-  },
-  540: {
-    slidesPerView: 2,
-    spaceBetween: 2,
-  },
-  320: {
-    slidesPerView: 1,
-    spaceBetween: 0,
-  },
-};
-
-const ImagePartner = styled(Image)`
-  object-fit: contain;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
+// const thumbBreakpoints = {
+//   960: {
+//     slidesPerView: 5,
+//     spaceBetween: 0,
+//   },
+//   720: {
+//     slidesPerView: 4,
+//     spaceBetween: 2,
+//   },
+//   540: {
+//     slidesPerView: 2,
+//     spaceBetween: 2,
+//   },
+//   320: {
+//     slidesPerView: 1,
+//     spaceBetween: 0,
+//   },
+// };
 
 const Testimonials = styled.div`
   max-width: 100%;
@@ -106,6 +98,28 @@ const PartnerInfo = styled.span`
 const PartnerWrapper = styled.div`
   background-color: rgb(250, 250, 250, 0.5);
   padding: 10vh 10vh;
+
+  @media screen and (max-width: 450px) {
+    padding: 2vh 2vh;
+  }
+`;
+
+const PartnerImages = styled.div`
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+  }
+
+  img {
+    filter: grayscale(1) brightness(1.7) contrast(0.2) saturate(0.7);
+    &:hover {
+      filter: none;
+    }
+  }
 `;
 
 const PartnerSection = () => {
@@ -159,27 +173,24 @@ const PartnerSection = () => {
             <TitleSection fSize={'32px'}>
               <h2>Quem está com a gente</h2>
             </TitleSection>
-            <Swiper
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              breakpoints={thumbBreakpoints}
-            >
-              {partners.map((item) => {
-                return (
-                  <SwiperSlide key={item.id}>
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      width={400}
-                      height={100}
-                      objectFit="contain"
-                    />
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
+            <Row className="justify-content-md-center">
+              <Col lg="8" xs="12">
+                <PartnerImages>
+                  {partners.map((item) => {
+                    return (
+                      <Image
+                        key={item.id}
+                        src={item.image}
+                        alt={item.title}
+                        width={200}
+                        height={100}
+                        objectFit="contain"
+                      />
+                    );
+                  })}
+                </PartnerImages>
+              </Col>
+            </Row>
           </ContainerCustom>
         </PartnerWrapper>
       </InfoSec>

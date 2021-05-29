@@ -47,7 +47,7 @@ const BenefitWrapper = styled.div`
   align-items: center;
 
   span {
-    background: ${({ theme }) => theme.colors.secondary};
+    background: ${({ theme }) => theme.colors.primary};
     padding: 1em;
     width: 100%;
     color: ${({ theme }) => theme.primaryLight};
