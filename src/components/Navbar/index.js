@@ -87,9 +87,9 @@ const NavbarCustom = () => {
           <Burger open={open} setOpen={setOpen} />
           <Menu open={open} setOpen={setOpen} />
         </div>
-        <div className="d-block d-sm-block d-md-block d-xl-none d-lg-none mt-2">
+        {/* <div className="d-block d-sm-block d-md-block d-xl-none d-lg-none mt-2">
           <LeadForm inline />
-        </div>
+        </div> */}
       </WrapperTest>
     </Navbar>
   );

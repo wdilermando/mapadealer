@@ -233,13 +233,13 @@ const ServicesSection = () => {
                 <FeatureItem>
                   <FeatureImage src={img2} alt="feature image 2" />
                   <h4>
-                    Plataforma <strong>Web</strong>
+                    Integra com <strong>ERPs</strong> diversos
                   </h4>
                 </FeatureItem>
                 <FeatureItem>
                   <FeatureImage src={img3} alt="feature image 3" />
                   <h4>
-                    Integra com <strong>ERPs</strong> diversos
+                    Plataforma <strong>Web</strong>
                   </h4>
                 </FeatureItem>
                 <FeatureItem>

@@ -9,8 +9,6 @@ import SwiperCore, { Thumbs, Navigation, Autoplay } from 'swiper/core';
 
 SwiperCore.use([Thumbs, Navigation, Autoplay]);
 
-import img1 from '../../assets/images/logo.png';
-
 const partners = [
   {
     id: 1,
@@ -27,8 +25,8 @@ const partners = [
   {
     id: 3,
     image:
-      'https://res.cloudinary.com/dyxbrraat/image/upload/v1622301155/mapa/logos/autorepasse_upjpnn.png',
-    title: 'Sael',
+      'https://res.cloudinary.com/dyxbrraat/image/upload/v1623075740/mapa/logos/autorepasse_lauibf.png',
+    title: 'Auto Repasse',
   },
 ];
 
