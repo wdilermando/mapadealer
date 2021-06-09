@@ -6,6 +6,7 @@ import 'react-modal-video/css/modal-video.min.css';
 import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
 import 'swiper/components/pagination/pagination.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const theme = {
   colors: {

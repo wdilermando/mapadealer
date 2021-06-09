@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Formik } from 'formik';
-import { Form } from 'react-bootstrap';
+import { Alert, Form, Toast } from 'react-bootstrap';
 import styled from 'styled-components';
+import * as Yup from 'yup';
+import { ToastContainer, toast } from 'react-toastify';
 
 const CustomButton = styled.button`
   background-color: ${({ theme }) => theme.colors.primary};
@@ -22,7 +24,6 @@ const ProposalText = styled.h5`
   font-size: 12px;
   white-space: ${({ inline }) => (inline ? 'pre-wrap' : 'normal')};
   width: ${({ inline }) => (inline ? '8vw' : 'auto')};
-  /* margin-right: 2vw; */
 `;
 
 const CustomFormInput = styled(Form.Control)`
@@ -37,47 +38,54 @@ const CustomFormInput = styled(Form.Control)`
   }
 `;
 
-const LeadForm = ({ inline }) => {
-  function onSubmit(values, { resetForm }) {
-    console.log('submit', values);
-    // actions.setValues({ name: '', email: '' });
-  }
+const schema = Yup.object().shape({
+  name: Yup.string().min(3, 'Muito Curto!').required('Campo obrigatório'),
+  email: Yup.string().min(3, 'Muito Curto!').required('Campo obrigatório'),
+});
 
-  function validate(values) {}
+const LeadForm = ({ inline }) => {
+  const formRef = useRef(null)
+  function onSubmit(values) {
+    console.log('submit', values);
+    formRef.current.reset();   
+    toast.info("Solicitação enviada com sucesso!")
+  }  
 
   return (
     <Formik
-      validate={validate}
+      validationSchema={schema}
       onSubmit={onSubmit}
       initialValues={{
-        name: '',
         email: '',
+        name:''
       }}
-      render={({ values, handleChange, handleSubmit }) => (
-        <Form onSubmit={handleSubmit} inline={inline}>
+      render={({ values, handleChange, handleSubmit, isValid }) => (
+        <Form onSubmit={handleSubmit} ref={formRef} inline={inline} >
           <ProposalText inline={inline}>SOLICITE UMA PROPOSTA</ProposalText>
-          <CustomFormInput
-            required
+          <CustomFormInput 
+          required           
             type="text"
             className="mb-2 mr-sm-2"
             id="inlineFormInputName"
             placeholder="Nome"
             name="name"
-            values={values.name}
+            value={values.name}
             onChange={handleChange}
           />
-          <CustomFormInput
-            required
+          <CustomFormInput    
+          required        
             type="email"
             className="mb-2 mr-sm-2"
             id="inlineFormInputName2"
             placeholder="E-mail"
             name="email"
-            values={values.email}
+            value={values.email}
             onChange={handleChange}
           />
-          <CustomButton type="submit">Enviar</CustomButton>
+          <CustomButton type="submit" disabled={!isValid}>Enviar</CustomButton>
+          <ToastContainer />
         </Form>
+
       )}
     />
   );

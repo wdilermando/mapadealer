@@ -41,6 +41,9 @@ const DescriptionText = styled(motion.p)`
 const FormWrapper = styled.div`
   margin: 0 auto;
   width: 25vw;
+  @media screen and (max-width: 991px) {
+    width: 100%;
+  }
 `;
 
 const GapSection = () => {

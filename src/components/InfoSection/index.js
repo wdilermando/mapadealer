@@ -42,6 +42,7 @@ const PlayButton = styled(motion.img)`
   width: 70px;
   height: 70px;
   cursor: pointer;
+  opacity: 0.7;
 `;
 
 const ImageSection = styled(motion.div)`

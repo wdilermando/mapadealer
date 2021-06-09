@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Logo from '../Logo';
-import { Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Nav, Navbar, NavDropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Burger from '../Burger';
 import Menu from '../Menu';
 import styled from 'styled-components';
@@ -25,73 +25,50 @@ const LoginLink = styled.span`
 `;
 
 const WhatsappLink = styled(motion.span)`
-  margin-right: 1em;
+  margin-right: 2em;
   img {
     width: 30px;
     height: 30px;
   }
 `;
 
-const WrapperTest = styled.div`
-  display: flex;
-  flex-direction: row;
-  @media screen and (max-width: 991px) {
-    flex-direction: column;
-  }
-`;
-
 const NavbarCustom = () => {
   const [open, setOpen] = useState(false);
   return (
-    <Navbar
-      className="bg-mapa justify-content-between align-items-center px-4"
-      fixed="top"
-    >
-      <Navbar.Brand
-        href="/"
-        className="d-none d-sm-none d-md-none d-xl-block d-lg-block"
-      >
-        <Logo />
-      </Navbar.Brand>
-      <div className="d-none d-sm-none d-md-none d-xl-block d-lg-block">
-        <LeadForm inline />
-      </div>
-      <WrapperTest>
-        <div className="d-flex justify-content-between align-items-center">
-          <Navbar.Brand
-            href="/"
-            className="d-block d-sm-block d-md-block d-xl-none d-lg-none"
-          >
-            <Logo />
-          </Navbar.Brand>
-          <OverlayTrigger
-            placement={'bottom'}
-            overlay={
-              <Tooltip id={`tooltip-bottom`}>
-                Fale conosco pelo WhatsApp
-              </Tooltip>
-            }
-          >
-            <WhatsappLink whileHover={{ scale: 1.15 }}>
-              <a href={WHATSAPP_LINK} rel="noreferrer" target="_blank">
-                <Image src={wpp} alt="whatsapp button" width={30} height={30} />
-              </a>
-            </WhatsappLink>
-          </OverlayTrigger>
+    <Navbar className="bg-mapa px-4" expand="lg" sticky="top" >
+  <Navbar.Brand href="#home"><Logo /> </Navbar.Brand>
+  <Nav className="mx-auto">
+       <div className="d-none d-sm-none d-md-none d-xl-block d-lg-block justify-content-center">
+         <LeadForm inline />
+       </div>
+    </Nav>
+  <div className="justify-content-end">
+  <div className="d-flex justify-content-between align-items-center">
 
-          <LoginLink className="mr-3">
-            <a href={APP_LOGIN} rel="noreferrer" target="_blank">
-              Login
-            </a>
-          </LoginLink>
+        <OverlayTrigger
+             placement={'bottom'}
+             overlay={
+               <Tooltip id={`tooltip-bottom`}>
+                 Fale conosco pelo WhatsApp
+               </Tooltip>
+             }
+           >
+             <WhatsappLink whileHover={{ scale: 1.15 }}>
+              <a href={WHATSAPP_LINK} rel="noreferrer" target="_blank">
+                 <Image src={wpp} alt="whatsapp button" width={30} height={30} />
+               </a>
+             </WhatsappLink>
+           </OverlayTrigger>
+           <LoginLink className="mr-3">
+             <a href={APP_LOGIN} rel="noreferrer" target="_blank">
+               Login
+             </a>
+           </LoginLink>
           <Burger open={open} setOpen={setOpen} />
-          <Menu open={open} setOpen={setOpen} />
-        </div>
-        {/* <div className="d-block d-sm-block d-md-block d-xl-none d-lg-none mt-2">
-          <LeadForm inline />
-        </div> */}
-      </WrapperTest>
-    </Navbar>
+           <Menu open={open} setOpen={setOpen} />
+  </div>
+  </div>
+</Navbar>    
   );
 };
 
