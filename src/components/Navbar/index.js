@@ -26,6 +26,9 @@ const LoginLink = styled.span`
 
 const WhatsappLink = styled(motion.span)`
   margin-right: 2em;
+  @media screen and (max-width: 450px) {
+    margin-right: 1em;
+  }
   img {
     width: 30px;
     height: 30px;
