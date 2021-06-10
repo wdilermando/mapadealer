@@ -64,9 +64,7 @@ const InfoSection2 = () => {
       <Row>
         <Col lg="4" xs="12">
           <ImgSideSection
-            src={
-              'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931145/mapa/info1_sozyya.png'
-            }
+            src={img1}
             alt="image with man and methodology"
           />
         </Col>
@@ -90,9 +88,7 @@ const InfoSection2 = () => {
             </DescriptionText>
             <WrapperImage>
               <Image
-                src={
-                  'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931485/mapa/map_vjwjyh.gif'
-                }
+                src={img2}
                 alt="map animation"
                 width={1048}
                 height={558}

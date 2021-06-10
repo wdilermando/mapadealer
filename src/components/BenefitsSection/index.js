@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import img1 from '../../assets/images/benefits1.png';
 
 const InfoSec = styled.div`
   background: #ffffff;
@@ -138,9 +139,7 @@ const BenefitsSection = () => {
         </Col>
         <Col lg="4" xs="12">
           <ImgSideSection
-            src={
-              'https://res.cloudinary.com/dyxbrraat/image/upload/v1620931145/mapa/benefits1_qgpspm.png'
-            }
+            src={img1}
             alt="benefits section image"
           />
         </Col>

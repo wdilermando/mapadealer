@@ -2,7 +2,6 @@ import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 import img1 from '../../assets/images/banners/b1.png';
 import img2 from '../../assets/images/banners/b2.png'

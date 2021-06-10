@@ -6,26 +6,26 @@ import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import background from '../../assets/images/bgBenefits.png';
 import SwiperCore, { Thumbs, Navigation, Autoplay } from 'swiper/core';
+import img1 from '../../assets/images/logos/sael.png'
+import img2 from '../../assets/images/logos/disnove.png'
+import img3 from '../../assets/images/logos/autorepasse.png'
 
 SwiperCore.use([Thumbs, Navigation, Autoplay]);
 
 const partners = [
   {
     id: 1,
-    image:
-      'https://res.cloudinary.com/dyxbrraat/image/upload/v1622301155/mapa/logos/sael__u4dtom.png',
+    image:img1,
     title: 'Sael',
   },
   {
     id: 2,
-    image:
-      'https://res.cloudinary.com/dyxbrraat/image/upload/v1622301155/mapa/logos/disnove__bz1lwj.png',
+    image: img2,
     title: 'Disnove',
   },
   {
     id: 3,
-    image:
-      'https://res.cloudinary.com/dyxbrraat/image/upload/v1623075740/mapa/logos/autorepasse_lauibf.png',
+    image:img3,
     title: 'Auto Repasse',
   },
 ];
