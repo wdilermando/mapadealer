@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Logo from '../Logo';
-import { Nav, Navbar, NavDropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Burger from '../Burger';
 import Menu from '../Menu';
 import styled from 'styled-components';
@@ -38,7 +38,7 @@ const WhatsappLink = styled(motion.span)`
 const NavbarCustom = () => {
   const [open, setOpen] = useState(false);
   return (
-    <Navbar className="bg-mapa px-4" expand="lg" sticky="top" >
+    <Navbar className="bg-mapa px-4 navbar-light bg-light" expand="lg" sticky="top" >
   <Navbar.Brand href="#home"><Logo /> </Navbar.Brand>
   <Nav className="mx-auto">
        <div className="d-none d-sm-none d-md-none d-xl-block d-lg-block justify-content-center">
