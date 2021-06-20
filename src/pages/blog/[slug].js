@@ -6,6 +6,8 @@ import background from '../../assets/images/bgServices.png';
 import { Col, Row } from 'react-bootstrap';
 import { ContainerCustom } from '../../styles/globalStyles';
 import { SocialIcons } from '../../components';
+import { allArticles, articleBySlug } from '../../lib/dato-cms';
+import { StructuredText } from 'react-datocms';
 
 const HeroSectionPost = styled.div`
   height: 50vh;
@@ -69,7 +71,8 @@ export default function Post({ post = {} }) {
     <>
       <HeroSectionPost>
         <Image
-          src={post.postImage}
+          alt={post.cover.alt}
+          src={post.cover.url}
           layout="responsive"
           width={1440}
           height={685}
@@ -84,18 +87,19 @@ export default function Post({ post = {} }) {
             <Col lg="8">
               <PostContent>
                 <TitlePostWrapper>
-                  <p>{post.category}</p>
+                  <p>{post.category[0].nome}</p>
                   <h3>{post.title}</h3>
                   <small>
                     {' '}
-                    {`Publicado por ${post.author} - ${post.postDate}`}
+                    {`Publicado por ${post.author.nome} - ${post._publishedAt}`}
                   </small>
                 </TitlePostWrapper>
-                <article
+                <StructuredText data={post.conteudo.value}/>
+                {/* <article
                   dangerouslySetInnerHTML={{
                     __html: `${post.content}`,
                   }}
-                ></article>
+                ></article> */}
               </PostContent>
             </Col>
             <Col lg="4">
@@ -112,7 +116,7 @@ export default function Post({ post = {} }) {
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPosts();
+  const allPosts = await allArticles();
 
   return {
     paths: allPosts.map((post) => {
@@ -127,11 +131,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const post = await getPostBySlug(params.slug);
+  const post = await articleBySlug(params.slug);
+  
 
   return {
     props: {
-      post: post[0],
+      post,
     },
   };
 }

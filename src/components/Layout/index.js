@@ -8,14 +8,14 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Mapa Dealer — Automação de processos comerciais</title>
+        <title>Mappa - dealer</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
         <meta
           name="title"
-          content="Mapa Dealer — Automação de processos comerciais"
+          content="Mappa — dealer"
         />
         <meta
           name="description"
@@ -23,10 +23,10 @@ const Layout = ({ children }) => {
         />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://mapadealer.com/" />
+        <meta property="og:url" content="https://mappadealer.com/" />
         <meta
           property="og:title"
-          content="Mapa Dealer — Automação de processos comerciais"
+          content="Mappa — dealer"
         />
         <meta
           property="og:description"
@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
         />
         <link
           rel="icon"
-          href="static/images/favicon.ico"
+          href="static/favicon.ico"
           type="image/x-icon"
         ></link>
         <link

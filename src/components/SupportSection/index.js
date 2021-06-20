@@ -8,6 +8,7 @@ import { ContainerCustom } from '../../styles/globalStyles';
 import img1 from '../../assets/svg/support/phone.svg';
 import img2 from '../../assets/svg/support/mail.svg';
 import img3 from '../../assets/svg/support/wpp2.svg';
+import { WHATSAPP_LINK } from '../../lib/constants';
 
 const InfoSec = styled.div`
   background: ${({ theme }) => theme.colors.secondary};
@@ -108,7 +109,7 @@ const SupportSection = () => {
                 <img src={img3} alt="Image to contact by whatsapp" />
                 <DescriptionText>Mande uma mensagem</DescriptionText>
                 <LinkAction>
-                  <a href="tel: (81) 9999 9999">+55 81 9999 9999</a>
+                  <a href={WHATSAPP_LINK} rel="noreferrer" target="_blank">+55 81 99300 9773</a>
                 </LinkAction>
               </ItemWrapper>
             </GridContainer>

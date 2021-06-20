@@ -126,20 +126,16 @@ const NewsSection = ({ posts }) => {
                           <span>
                             <Image
                               src={item.postImage}
-                              alt={item.title}
-                              height="auto"
-                              width="auto"
+                              alt={item.alt}
+                              height={150}
+                              width={300}
                               objectFit="cover"
                             />
                           </span>
                           <TextSmall destac>{item.category}</TextSmall>
                           <ThumbTitle>{item.title}</ThumbTitle>
                           <TextSmall>{`Publicado por ${item.author} - ${item.postDate}`}</TextSmall>
-                          <DescText
-                            dangerouslySetInnerHTML={{
-                              __html: `${item.excerpt}`,
-                            }}
-                          />
+                          <DescText>{item.excerpt}</DescText>                          
                         </CardThumb>
                       </Link>
                     </SwiperSlide>

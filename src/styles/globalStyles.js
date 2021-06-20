@@ -11,6 +11,9 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 50%;
     padding: 15px;
 }
+html {
+    scroll-behavior: smooth;
+  }
   body {
     margin: 0;
     padding: 0;

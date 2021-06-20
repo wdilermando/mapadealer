@@ -3,7 +3,7 @@ export const PLAY_GOOGLE =
   'https://play.google.com/store/apps/details?id=br.com.mappadealer';
 export const APPLE_STORE =
   'https://apps.apple.com/br/app/mappa-dealer/id1524724216';
-export const WHATSAPP_LINK = 'https://wa.me/552196312XXXX';
+export const WHATSAPP_LINK = 'https://wa.me/5581993009773';
 export const INSTAGRAM_LINK =
   'https://instagram.com/mappadealer?igshid=xqmbsf3sd4i3';
 export const FACEBOOK_LINK =

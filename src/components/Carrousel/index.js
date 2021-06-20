@@ -1,67 +1,69 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
-
 import img1 from '../../assets/images/banners/b1.png';
-import img2 from '../../assets/images/banners/b2.png'
-import img3 from '../../assets/images/banners/b3.png'
 
 const ImgSlider = styled.img`
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  filter: brightness(80%);
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(80%);
 `;
 
-const HeroTitle = styled(motion.h2)`
-  font-size: 3em;
-  font-weight: 800;
-  color: white;
-  text-transform: uppercase;
-  position: absolute;
-  top: calc(50% - 64px);
-  text-align: center;
-  width: 100%;
-  white-space: pre-wrap;
+const CarouselItem = styled(Carousel.Item)`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  @media screen and (max-width: 450px) {
-    font-size: 1.5em;
-  }
+    span {
+        position: absolute;
+        top: calc(50% - 64px);
+        z-index: 10;
+
+        @media screen and (max-width: 450px) {
+            top: calc(35% - 64px);
+        }
+    }
 `;
 
-const HeroSectionCarrousel = () => {
-  return (
-    <Carousel fade controls={false}>
-      <Carousel.Item>
-        <ImgSlider
-          src={img1}
-          alt="first slide"
-        />
-        <HeroTitle>
-          CONDUZINDO PROCESSOS.{'\n'}POTENCIALIZANDO A GESTÃO.
-        </HeroTitle>
-      </Carousel.Item>
-      <Carousel.Item>
-        <ImgSlider
-          src={img2}
-          alt="second slide"
-        />
-        <HeroTitle>
-          VOCÊ JÁ OUVIU FALAR EM{'\n'}DIGITALIZAÇÃO DE JORNADA?
-        </HeroTitle>
-      </Carousel.Item>
-      <Carousel.Item>
-        <ImgSlider
-          src={img3}
-          alt="third slide"
-        />
-        <HeroTitle>
-          MAIS QUE UM SOFTWARE OU UM PROGRAMA:{'\n'}SOMOS UMA METODOLOGIA
-        </HeroTitle>
-      </Carousel.Item>
-    </Carousel>
-  );
+const HeroTitle = styled.h2`
+    font-size: 3em;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+
+    @media screen and (max-width: 450px) {
+        font-size: 1.5em;
+    }
+`;
+
+const HeroSectionCarrousel = ({ banners }) => {
+    return (
+        <Carousel fade controls={false}>
+            {banners &&
+                banners.map((b) => (
+                    <CarouselItem key={b.id}>
+                        <span>
+                            <HeroTitle>{b.titulo}</HeroTitle>
+                        </span>
+                        <ImgSlider src={b.imagemDestaque.url} alt={b.imagemDestaque.alt} />
+                    </CarouselItem>
+                ))}
+
+            {!banners.length && (
+                <CarouselItem>
+                    <span>
+                        <HeroTitle>MAPPA DEALER</HeroTitle>
+                    </span>
+                    <ImgSlider src={img1} alt="fallback slide" />
+                </CarouselItem>
+            )}
+        </Carousel>
+    );
 };
 
 export default HeroSectionCarrousel;

@@ -44,28 +44,28 @@ export const StyledMenu = styled.nav`
   }
 `;
 
-const Menu = ({ open }) => {
+const Menu = ({ open, setOpen }) => {
   return (
     <StyledMenu open={open}>
-      <a href="/#about" rel="noopener">
+      <a href="/#about" rel="noopener" onClick={()=>setOpen(false)}>
         Sobre
       </a>
-      <a href="/#services" rel="noopener">
+      <a href="/#services" rel="noopener" onClick={()=>setOpen(false)}>
         Serviços
       </a>
-      <a href="/#benefits" rel="noopener">
+      <a href="/#benefits" rel="noopener" onClick={()=>setOpen(false)}>
         Benefícios
       </a>
-      <a href="/#customers" rel="noopener">
+      <a href="/#customers" rel="noopener" onClick={()=>setOpen(false)}>
         Clientes
       </a>
-      <a href="/#support" rel="noopener">
+      <a href="/#support" rel="noopener" onClick={()=>setOpen(false)}>
         Suporte
       </a>
-      <a href="/#blog" rel="noopener">
+      <a href="/#blog" rel="noopener" onClick={()=>setOpen(false)}>
         Blog
       </a>
-      <a href={APP_LOGIN} target="_blank" rel="noreferrer">
+      <a href={APP_LOGIN} target="_blank" rel="noreferrer" onClick={()=>setOpen(false)}>
         Login
       </a>
     </StyledMenu>

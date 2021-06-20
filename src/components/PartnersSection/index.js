@@ -6,29 +6,8 @@ import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import background from '../../assets/images/bgBenefits.png';
 import SwiperCore, { Thumbs, Navigation, Autoplay } from 'swiper/core';
-import img1 from '../../assets/images/logos/sael.png'
-import img2 from '../../assets/images/logos/disnove.png'
-import img3 from '../../assets/images/logos/autorepasse.png'
 
 SwiperCore.use([Thumbs, Navigation, Autoplay]);
-
-const partners = [
-  {
-    id: 1,
-    image:img1,
-    title: 'Sael',
-  },
-  {
-    id: 2,
-    image: img2,
-    title: 'Disnove',
-  },
-  {
-    id: 3,
-    image:img3,
-    title: 'Auto Repasse',
-  },
-];
 
 import { ContainerCustom } from '../../styles/globalStyles';
 import { Parallax } from 'react-parallax';
@@ -91,6 +70,10 @@ const TestimonialTextWrapper = styled.div`
 const PartnerInfo = styled.span`
   font-size: 18px;
   color: ${({ theme }) => theme.primaryDark};
+
+  strong {
+    text-transform: uppercase;
+  }
 `;
 
 const PartnerWrapper = styled.div`
@@ -120,52 +103,47 @@ const PartnerImages = styled.div`
   }
 `;
 
-const PartnerSection = () => {
+const PartnerSection = ({testimonials, partners}) => {
   return (
     <div id="customers">
       <InfoSec blur={1} bgImage={background} strength={-150}>
-        <ContainerCustom>
-          <Row className="mb-5 mt-5">
-            <Col lg="6" xs>
-              <TitleSection fSize={'32px'}>
-                <h2>Clientes</h2>
-              </TitleSection>
-              <DescriptionText>
-                Saiba o que os nossos clientes estão achando da revolução
-                digital que o Mappa oferece para os processos de venda das suas
-                empresas.
-              </DescriptionText>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs lg="12">
-              <Testimonials>
-                <Swiper slidesPerView={1} spaceBetween={0} navigation>
-                  {[1, 2, 3].map((item) => {
-                    return (
-                      <SwiperSlide key={item}>
-                        <TestimonialTextWrapper>
-                          <DescriptionText>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore
-                            eu fugiat nulla pariat
-                          </DescriptionText>
-                          <PartnerInfo>
-                            <strong>NOME SOBRENOME</strong>, Cargo
-                          </PartnerInfo>
-                        </TestimonialTextWrapper>
-                      </SwiperSlide>
-                    );
-                  })}
-                </Swiper>
-              </Testimonials>
-            </Col>
-          </Row>
-        </ContainerCustom>
+        {testimonials && (
+          <ContainerCustom>
+            <Row className="mb-5 mt-5">
+              <Col lg="6" xs>
+                <TitleSection fSize={'32px'}>
+                  <h2>Clientes</h2>
+                </TitleSection>
+                <DescriptionText>
+                  Saiba o que os nossos clientes estão achando da revolução
+                  digital que o Mappa oferece para os processos de venda das suas
+                  empresas.
+                </DescriptionText>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs lg="12">
+                <Testimonials>
+                  <Swiper slidesPerView={1} spaceBetween={0} navigation>
+                    {testimonials.map((item) => {
+                      return (
+                        <SwiperSlide key={item.id}>
+                          <TestimonialTextWrapper>
+                            <DescriptionText>{item.conteudo}
+                            </DescriptionText>
+                            <PartnerInfo>
+                              <strong>{item.nomeCliente}</strong>, {item.cargoCliente}
+                            </PartnerInfo>
+                          </TestimonialTextWrapper>
+                        </SwiperSlide>
+                      );
+                    })}
+                  </Swiper>
+                </Testimonials>
+              </Col>
+            </Row>
+          </ContainerCustom>
+        )}
         <PartnerWrapper>
           <ContainerCustom>
             <TitleSection fSize={'32px'}>
@@ -178,8 +156,8 @@ const PartnerSection = () => {
                     return (
                       <Image
                         key={item.id}
-                        src={item.image}
-                        alt={item.title}
+                        src={item.logo.url}
+                        alt={item.nomeCliente}
                         width={200}
                         height={100}
                         objectFit="contain"

@@ -10,19 +10,23 @@ import {
   SocialSection,
   SupportSection,
 } from '../components';
-import { getAllPosts } from '../lib/api';
+import {
+  allArticles, allBanners, allClients, allTestimonials,
+} from '../lib/dato-cms';
 
-export default function Home({ allPosts }) {
+export default function Home({
+  allPosts, testimonials, banners, clients,
+}) {
   return (
     <>
-      <HeroSectionCarrousel />
+      <HeroSectionCarrousel banners={banners} />
       <InfoSection />
       <InfoSection2 />
       <SocialSection />
       <ServicesSection />
       <BenefitsSection />
       <GapSection />
-      <PartnerSection />
+      <PartnerSection testimonials={testimonials} partners={clients} />
       <SupportSection />
       <NewsSection posts={allPosts} />
     </>
@@ -30,10 +34,15 @@ export default function Home({ allPosts }) {
 }
 
 export async function getStaticProps() {
-  const allPosts = await getAllPosts();
+  const allPosts = await allArticles();
+  const testimonials = await allTestimonials();
+  const clients = await allClients();
+  const banners = await allBanners();
 
   return {
-    props: { allPosts },
-    revalidate: 10,
+    props: {
+      allPosts, testimonials, banners, clients,
+    },
+    revalidate: 120,
   };
 }
